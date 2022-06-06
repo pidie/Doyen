@@ -19,13 +19,16 @@ MonoBehaviour:
     enabled: 1
     minimum: 0
     maximum: 1
+    value: 0.75
   lifeSpan:
     name: LifeSpan
     enabled: 1
     minimum: 0
     maximum: 1000
+    value: 950
   properties:
   - name: healingMultiplier
     enabled: 1
     minimum: 0.02
     maximum: 0.045
+    value: 0
