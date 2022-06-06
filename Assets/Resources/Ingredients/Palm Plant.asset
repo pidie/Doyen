@@ -27,7 +27,7 @@ MonoBehaviour:
     maximum: 1000
     value: 950
   properties:
-  - name: healingMultiplier
+  - name: healingModifier
     enabled: 1
     minimum: 0.02
     maximum: 0.045
