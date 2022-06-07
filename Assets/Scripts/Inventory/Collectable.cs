@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace Inventory
 {
+    // todo : start to distinguish a collectable from explicitly being an ingredient
     [RequireComponent(typeof(Collider))]
     public class Collectable : MonoBehaviour
     {
