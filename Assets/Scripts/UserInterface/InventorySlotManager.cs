@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Inventory;
@@ -13,20 +14,19 @@ namespace UserInterface
 
         private void OnEnable()
         {
-            foreach (var slot in _inventoryItemSlots)
-            {
-                slot.gameObject.SetActive(false);
-            }
             var itemsAdded = new HashSet<Ingredient>();
+            var slotModifier = 0;
+            
             for (var i = 0; i < PlayerInventory.Items.Count; i++)
             {
-                var slot = _inventoryItemSlots[i];
+                var slot = _inventoryItemSlots[i + slotModifier];
                 var item = PlayerInventory.Items[i];
-
+                
                 if (itemsAdded.Contains(item.ingredient))
                 {
                     var itemSlot = FindItemSlotByIngredient(item.ingredient);
                     itemSlot.quantityText.text = (int.Parse(itemSlot.quantityText.text) + 1).ToString();
+                    slotModifier--;
                 }
                 else
                 {
@@ -38,6 +38,12 @@ namespace UserInterface
 
                 itemsAdded.Add(item.ingredient);
             }
+        }
+
+        private void OnDisable()
+        {
+            foreach (var slot in _inventoryItemSlots)
+                slot.gameObject.SetActive(false);
         }
 
         private InventoryItemSlot FindItemSlotByIngredient(Ingredient ingredient) =>
