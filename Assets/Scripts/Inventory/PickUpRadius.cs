@@ -37,15 +37,26 @@ namespace Inventory
         private void DetectCollectables()
         {
             hits = new Collider[20];
-            Physics.OverlapSphereNonAlloc(transform.position, detectionRadius, hits);
-
-            var collectables = new List<Collectable>();
+            Physics.OverlapSphereNonAlloc(transform.position, detectionRadius, hits, LayerMask.GetMask("Collectable"));
 
             foreach (var hit in hits)
-                if (hit.GetComponent<Collectable>() != null)
-                    collectables.Add(hit.GetComponent<Collectable>());
+            {
+                if (hit != null)
+                {
+                    var collectable = hit.GetComponent<Collectable>();
 
-            collectablesInRange = collectables.Count > 0 ? collectables : collectablesInRange;
+                    if (!collectablesInRange.Contains(collectable))
+                        collectablesInRange.Add(collectable);
+                }
+            }
+
+            foreach (var collectable in collectablesInRange)
+            {
+                var col = collectable.GetComponent<Collider>();
+
+                if (!hits.Contains(col))
+                    collectablesInRange.Remove(collectable);
+            }
 
             _runDetection = false;
         }
