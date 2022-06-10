@@ -1,3 +1,4 @@
+using Inventory;
 using UnityEngine;
 using UserInterface;
 
@@ -9,8 +10,10 @@ namespace PlayerInput
 		{
 			if (Input.anyKey)
 			{
-				if (Input.GetKeyDown(KeyCode.I))
+				if (Input.GetKeyDown(Globals.GetKeyBinding("Inventory")))
 					HUD.ToggleInventoryPanel();
+				if (Input.GetKeyDown(Globals.GetKeyBinding("Interact")))
+					PickUpRadius.itemPickUpRequested.Invoke();
 			}
 		}
 	}

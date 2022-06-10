@@ -3087,6 +3087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56fe1187021e90b4399dd362ab3df62a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectionRadius: 2.5
   collectablesInRange: []
 --- !u!135 &863880318
 SphereCollider:
@@ -3099,7 +3100,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &920152180
 GameObject:

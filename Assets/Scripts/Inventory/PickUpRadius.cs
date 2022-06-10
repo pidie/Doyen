@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,33 +8,41 @@ namespace Inventory
 {
     public class PickUpRadius : MonoBehaviour
     {
+        [SerializeField] private float detectionRadius;
         [SerializeField] private List<Collectable> collectablesInRange = new ();
 
-        public static int NumberOfCollectablesInRange { get; private set; }
+        private SphereCollider _detectionSphere;
 
-        private void Update()
+        public static Action itemPickUpRequested;
+
+        private void Awake()
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                TryPickUpItem();
-            }
+            _detectionSphere = GetComponent<SphereCollider>();
+            _detectionSphere.radius = detectionRadius;
+            
+            itemPickUpRequested += TryPickUpItem;
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Collectable"))
+            {
                 collectablesInRange.Add(other.GetComponent<Collectable>());
+                HUD.DisplayMessageBox($"{collectablesInRange.LastOrDefault().Data.name}\nPress {Globals.GetKeyBinding("Interact")} to pick up");
+            }
         }
 
         private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("Collectable"))
+            {
                 collectablesInRange.Remove(other.GetComponent<Collectable>());
+                if (collectablesInRange.Count < 1)
+                    HUD.HideMessageBox();
+            }
         }
-
-        private void UpdateCollectablesInRangeCount() => NumberOfCollectablesInRange = collectablesInRange.Count;
-
-        private void TryPickUpItem()
+        
+        public void TryPickUpItem()
         {
             var item = collectablesInRange.LastOrDefault();
 
@@ -42,11 +51,9 @@ namespace Inventory
                 PlayerInventory.AddItem(item.Data);
                 Destroy(item.gameObject);
                 collectablesInRange.Remove(item);
-                UpdateCollectablesInRangeCount();
-                
-                if (NumberOfCollectablesInRange < 1)
-                    HUD.HideMessageBox();
             }
         }
     }
 }
+
+

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UserInterface;
 using Random = UnityEngine.Random;
 
 namespace Inventory
@@ -61,23 +60,6 @@ namespace Inventory
                 var name = property.name;
                 var value = Random.Range(property.minimum, property.maximum);
                 properties.Add(new IngredientPropertyValue(name, value));
-            }
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                HUD.DisplayMessageBox($"{ingredient.name} (Press E to pick up)");
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                if (PickUpRadius.NumberOfCollectablesInRange < 1)
-                    HUD.HideMessageBox();
             }
         }
     }
