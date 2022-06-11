@@ -6,8 +6,8 @@ namespace UserInterface
 {
 	public class TooltipManager : MonoBehaviour
 	{
-		public TextMeshProUGUI tooltipText;
-		public RectTransform tooltipWindow;
+		private TextMeshProUGUI _tooltipText;
+		private RectTransform _tooltipWindow;
 
 		public static Action<string, Vector2, Tooltip> OnMouseShowMessage;
 		public static Action OnMouseHideMessage;
@@ -30,23 +30,23 @@ namespace UserInterface
 
 		private void ShowTooltip(string message, Vector2 mousePosition, Tooltip tooltip)
 		{
-			tooltipText = tooltip.text;
-			tooltipWindow = tooltip.window;
+			_tooltipText = tooltip.text;
+			_tooltipWindow = tooltip.window;
 			
-			tooltipText.text = message;
-			tooltipWindow.sizeDelta = new Vector2(tooltipText.preferredWidth > 200 ? 200 : tooltipText.preferredWidth,
-				tooltipText.preferredHeight);
+			_tooltipText.text = message;
+			_tooltipWindow.sizeDelta = new Vector2(_tooltipText.preferredWidth > 200 ? 200 : _tooltipText.preferredWidth,
+				_tooltipText.preferredHeight);
 
-			tooltipWindow.gameObject.SetActive(true);
+			_tooltipWindow.gameObject.SetActive(true);
 
-			Offset = tooltipWindow.sizeDelta.x / 2;
-			tooltipWindow.transform.position = new Vector2(mousePosition.x + Offset, mousePosition.y);
+			Offset = _tooltipWindow.sizeDelta.x / 2;
+			_tooltipWindow.transform.position = new Vector2(mousePosition.x + Offset, mousePosition.y);
 		}
 
 		private void HideTooltip()
 		{
-			tooltipText.text = default;
-			tooltipWindow.gameObject.SetActive(false);
+			_tooltipText.text = default;
+			_tooltipWindow.gameObject.SetActive(false);
 		}
 	}
 
