@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -295,6 +295,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7037688278163969981}
   - component: {fileID: 5580010952010145722}
+  - component: {fileID: 8694476739857353538}
+  - component: {fileID: 4777614226685107461}
   m_Layer: 5
   m_Name: ItemSlot
   m_TagString: Untagged
@@ -336,5 +338,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a6eeaefb222c648970972b368a8fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UITooltip: {fileID: 8269257524282556649, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
   icon: {fileID: 6454947470728367217}
   quantityText: {fileID: 5538406896652787327}
+  itemName: 
+--- !u!61 &8694476739857353538
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8858434882127982242}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &4777614226685107461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8858434882127982242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eca07fb2b7f37d40b85858c7ee62459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: test
