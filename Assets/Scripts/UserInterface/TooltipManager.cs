@@ -12,6 +12,8 @@ namespace UserInterface
 		public static Action<string, Vector2> OnMouseShowMessage;
 		public static Action OnMouseHideMessage;
 
+		public static float Offset { get; private set; }
+
 		private void Awake() => HideTooltip();
 
 		private void OnEnable()
@@ -33,13 +35,14 @@ namespace UserInterface
 				tooltipText.preferredHeight);
 
 			tooltipWindow.gameObject.SetActive(true);
-			tooltipWindow.transform.position =
-				new Vector2(mousePosition.x + tooltipWindow.sizeDelta.x * 2, mousePosition.y);
+
+			Offset = tooltipWindow.sizeDelta.x / 2;
+			tooltipWindow.transform.position = new Vector2(mousePosition.x + Offset, mousePosition.y);
 		}
 
 		private void HideTooltip()
 		{
-			tooltipText = default;
+			tooltipText.text = default;
 			tooltipWindow.gameObject.SetActive(false);
 		}
 	}
