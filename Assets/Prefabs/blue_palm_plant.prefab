@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 3940211072984727532}
   - component: {fileID: 7611994330379545921}
   - component: {fileID: 6722877910117142370}
+  - component: {fileID: -16420571081459725}
   m_Layer: 0
   m_Name: blue_palm_plant
   m_TagString: Collectable
@@ -145,3 +146,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredient: {fileID: 11400000, guid: f6ea8cccef3fbf24f96f3806ef421758, type: 2}
   properties: []
+--- !u!114 &-16420571081459725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4460148804135478614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 1, b: 0, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

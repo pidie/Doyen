@@ -14,6 +14,7 @@ namespace Inventory
         [SerializeField] private List<IngredientPropertyValue> properties;
         
         private Collider _collider;
+        private Outline _outline;
         
         public bool IsAutocollected { get; private set; }
         public CollectableData Data
@@ -39,6 +40,8 @@ namespace Inventory
 
         private void Awake()
         {
+            _outline = GetComponent<Outline>();
+            _outline.enabled = false;
             _collider = GetComponent<Collider>();
             _collider.isTrigger = true;
 
@@ -62,6 +65,10 @@ namespace Inventory
                 properties.Add(new IngredientPropertyValue(name, value));
             }
         }
+
+        public void ToggleOutlineOn() => _outline.enabled = true;
+
+        public void ToggleOutlineOff() => _outline.enabled = false;
     }
 
     [Serializable]

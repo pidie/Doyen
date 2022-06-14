@@ -41,6 +41,7 @@ namespace Inventory
             if (other.CompareTag("Collectable"))
             {
                 var collectable = other.GetComponent<Collectable>();
+                collectable.ToggleOutlineOff();
                 collectablesInRange.Remove(collectable);
                 if (collectablesInRange.Count < 1)
                 {
@@ -73,6 +74,7 @@ namespace Inventory
         private void ShowMessageBox(Collectable collectable)
         {
             _targetCollectable = collectable;
+            _targetCollectable.ToggleOutlineOn();
             HUD.OnDisplayMessageBox($"{collectable.Data.name}\nPress {Globals.GetKeyBinding("Interact")} to pick up");
         }
 
@@ -89,7 +91,10 @@ namespace Inventory
                     var potentialTargetDistance = Vector3.Distance(transform.position, collectable.transform.position);
 
                     if (potentialTargetDistance < currentTargetDistance)
+                    {
+                        _targetCollectable.ToggleOutlineOff();
                         ShowMessageBox(collectable);
+                    }
                 }
             }
         }
