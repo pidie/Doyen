@@ -85,11 +85,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2127388737778007233, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2127388737778007233, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 45.11
       objectReference: {fileID: 0}
     - target: {fileID: 2127388737778007233, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_LocalPosition.x
@@ -158,6 +158,10 @@ PrefabInstance:
     - target: {fileID: 8269257524282556649, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_Name
       value: InventoryItemTooltipWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
+      propertyPath: m_text
+      value: Blue Palm Plant
       objectReference: {fileID: 0}
     - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_margin.w

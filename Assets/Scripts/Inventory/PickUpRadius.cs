@@ -20,6 +20,7 @@ namespace Inventory
         {
             _detectionSphere = GetComponent<SphereCollider>();
             _detectionSphere.radius = detectionRadius;
+            _targetCollectable = null;
             
             itemPickUpRequested += TryPickUpItem;
         }
@@ -41,7 +42,11 @@ namespace Inventory
             {
                 var collectable = other.GetComponent<Collectable>();
                 collectablesInRange.Remove(collectable);
-                CheckForHideMessageBox();
+                if (collectablesInRange.Count < 1)
+                {
+                    _targetCollectable = null;
+                    CheckForHideMessageBox();
+                }
             }
         }
         
@@ -54,6 +59,7 @@ namespace Inventory
                 PlayerInventory.AddItem(item.Data);
                 Destroy(item.gameObject);
                 collectablesInRange.Remove(item);
+                _targetCollectable = null;
                 CheckForHideMessageBox();
             }
         }
@@ -61,13 +67,13 @@ namespace Inventory
         private void CheckForHideMessageBox()
         {
             if (collectablesInRange.Count < 1)
-                HUD.HideMessageBox();
+                HUD.OnHideMessageBox();
         }
 
         private void ShowMessageBox(Collectable collectable)
         {
             _targetCollectable = collectable;
-            HUD.DisplayMessageBox($"{collectable.Data.name}\nPress {Globals.GetKeyBinding("Interact")} to pick up");
+            HUD.OnDisplayMessageBox($"{collectable.Data.name}\nPress {Globals.GetKeyBinding("Interact")} to pick up");
         }
 
         private void DetermineTargetCollectable()

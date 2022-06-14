@@ -37,3 +37,8 @@ MonoBehaviour:
     minimum: 0.04
     maximum: 0.098
     value: 0
+  - name: temporalInfusion
+    enabled: 1
+    minimum: 0.05
+    maximum: 0.085
+    value: 0
