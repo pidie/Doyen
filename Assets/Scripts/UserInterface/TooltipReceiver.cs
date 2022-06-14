@@ -6,10 +6,18 @@ namespace UserInterface
 {
     public class TooltipReceiver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
+        [SerializeField] private Tooltip tooltip;
+        [SerializeField] private string parentName;
+
+        private Transform _parent;
         private InventoryItemSlot _slot;
         private string _message;
 
-        private void Awake() => _slot = GetComponent<InventoryItemSlot>();
+        private void Awake()
+        {
+            _slot = GetComponent<InventoryItemSlot>();
+            _parent = GameObject.Find(parentName).transform;
+        }
 
         private void OnEnable() => _message = _slot.itemName;
 
@@ -22,10 +30,10 @@ namespace UserInterface
         public void OnPointerExit(PointerEventData eventData)
         {
             StopAllCoroutines();
-            TooltipManager.OnMouseHideMessage();
+            TooltipManager.OnDestroyTooltip();
         }
 
-        private void ShowMessage() => TooltipManager.OnMouseShowMessage(_message, Input.mousePosition);
+        private void ShowMessage() => TooltipManager.OnCreateTooltip(_message, tooltip, _parent);
 
         private IEnumerator MessageDelay()
         {

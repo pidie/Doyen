@@ -338,7 +338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a6eeaefb222c648970972b368a8fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UITooltip: {fileID: 8269257524282556649, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
   icon: {fileID: 6454947470728367217}
   quantityText: {fileID: 5538406896652787327}
   itemName: 
@@ -380,4 +379,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eca07fb2b7f37d40b85858c7ee62459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: test
+  tooltip: {fileID: 338003000485364688, guid: b2bce300d19dcc54c9d92d412c0ee6ac, type: 3}
+  parentName: InventoryPanel

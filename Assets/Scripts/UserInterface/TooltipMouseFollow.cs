@@ -5,12 +5,12 @@ namespace UserInterface
     public class TooltipMouseFollow : MonoBehaviour
     {
         private bool _follow;
-        private float _offset;
+        private Vector2 _offset;
 
         private void Update()
         {
             if (_follow)
-                transform.position = new Vector2(Input.mousePosition.x + _offset, Input.mousePosition.y);
+                transform.position = (Vector2) Input.mousePosition + _offset;
         }
 
         private void OnEnable()

@@ -8,69 +8,75 @@ namespace UserInterface
 	{
 		private TextMeshProUGUI _tooltipText;
 		private RectTransform _tooltipWindow;
+		private Tooltip _activeTooltip;
 
-		public static Action<string, Vector2, Tooltip> OnMouseShowMessage;
-		public static Action OnMouseHideMessage;
+		public static Action<string, Tooltip, Transform> OnCreateTooltip;
+		public static Action OnDestroyTooltip;
 
-		public static float Offset { get; private set; }
-
-		private void Awake() => HideTooltip();
+		public static Vector2 Offset { get; private set; }
 
 		private void OnEnable()
 		{
-			OnMouseShowMessage += ShowTooltip;
-			OnMouseHideMessage += HideTooltip;
+			OnCreateTooltip += CreateTooltip;
+			OnDestroyTooltip += DestroyTooltip;
 		}
 
 		private void OnDisable()
 		{
-			OnMouseShowMessage -= ShowTooltip;
-			OnMouseHideMessage -= HideTooltip;
+			OnCreateTooltip -= CreateTooltip;
+			OnDestroyTooltip -= DestroyTooltip;
 		}
 
-		private void ShowTooltip(string message, Vector2 mousePosition, Tooltip tooltip)
+		public void CreateTooltip(string message, Tooltip tooltip, Transform parent)
 		{
-			_tooltipText = tooltip.text;
-			_tooltipWindow = tooltip.window;
+			_activeTooltip = tooltip;
+			var activeTooltipText = _activeTooltip.reference.text;
+			var activeTooltipWindow = _activeTooltip.reference.window;
+
+			activeTooltipText.text = message;
+			activeTooltipWindow.sizeDelta = new Vector2(activeTooltipText.preferredWidth > 200 ? 200 : activeTooltipText.preferredWidth,
+				activeTooltipText.preferredHeight);
+
+			_activeTooltip = Instantiate(_activeTooltip, parent);
+
+			Offset = new Vector2(activeTooltipWindow.sizeDelta.x / 2, 0);
+			_activeTooltip.transform.position = (Vector2) Input.mousePosition + Offset;
 			
-			_tooltipText.text = message;
-			_tooltipWindow.sizeDelta = new Vector2(_tooltipText.preferredWidth > 200 ? 200 : _tooltipText.preferredWidth,
-				_tooltipText.preferredHeight);
-
-			_tooltipWindow.gameObject.SetActive(true);
-
-			Offset = _tooltipWindow.sizeDelta.x / 2;
-			_tooltipWindow.transform.position = new Vector2(mousePosition.x + Offset, mousePosition.y);
+			_activeTooltip.gameObject.AddComponent<TooltipMouseFollow>();
 		}
 
-		private void HideTooltip()
+		public void DestroyTooltip()
 		{
-			_tooltipText.text = default;
-			_tooltipWindow.gameObject.SetActive(false);
+			if (_activeTooltip != null)
+			{
+				Destroy(_activeTooltip.gameObject);
+				_activeTooltip = null;
+			}
 		}
 	}
 
-	public struct Tooltip
+	[Serializable]
+	public struct TooltipReference
 	{
 		public TextMeshProUGUI text;
 		public RectTransform window;
 
-		public Tooltip(TextMeshProUGUI text, RectTransform window)
+		public TooltipReference(TextMeshProUGUI text, RectTransform window)
 		{
 			this.text = text;
 			this.window = window;
 		}
 
-		public Tooltip(TMP_Text text, RectTransform window)
+		public TooltipReference(TMP_Text text, RectTransform window)
 		{
 			this.text = (TextMeshProUGUI) text;
 			this.window = window;
 		}
 
-		public Tooltip(RectTransform window)
+		public TooltipReference(RectTransform window)
 		{
 			this.window = window;
-			this.text = window.GetComponentInChildren<TextMeshProUGUI>();
+			text = window.GetComponentInChildren<TextMeshProUGUI>();
 		}
 	}
 }
