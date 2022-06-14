@@ -39,7 +39,8 @@ namespace UserInterface
 
 			_activeTooltip = Instantiate(_activeTooltip, parent);
 
-			Offset = new Vector2(activeTooltipWindow.sizeDelta.x / 2, 0);
+			var tooltipSizeDelta = activeTooltipWindow.sizeDelta;
+			Offset = new Vector2(tooltipSizeDelta.x / 2, tooltipSizeDelta.y / 2);
 			_activeTooltip.transform.position = (Vector2) Input.mousePosition + Offset;
 			
 			_activeTooltip.gameObject.AddComponent<TooltipMouseFollow>();
