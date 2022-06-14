@@ -42,8 +42,8 @@ namespace UserInterface
 			activeTooltipContents.rectTransform.sizeDelta = new Vector2(activeTooltipWindow.sizeDelta.x,
 				activeTooltipContents.preferredHeight);
 			
-			activeTooltipTitle.transform.position = Vector3.zero;
-			activeTooltipContents.transform.position = Vector3.zero;
+			activeTooltipTitle.transform.localPosition = Vector3.zero;
+			activeTooltipContents.transform.localPosition = Vector3.zero;
 			
 
 			var tooltipSizeDelta = activeTooltipWindow.sizeDelta;
