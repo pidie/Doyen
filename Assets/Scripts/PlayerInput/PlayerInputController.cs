@@ -11,7 +11,7 @@ namespace PlayerInput
 			if (Input.anyKey)
 			{
 				if (Input.GetKeyDown(Globals.GetKeyBinding("Inventory")))
-					HUD.ToggleInventoryPanel();
+					HUD.OnToggleInventoryPanel();
 				if (Input.GetKeyDown(Globals.GetKeyBinding("Interact")))
 					PickUpRadius.itemPickUpRequested.Invoke();
 			}

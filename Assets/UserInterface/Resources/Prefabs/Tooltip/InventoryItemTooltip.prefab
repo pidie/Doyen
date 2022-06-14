@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2127388737778007233, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 176.12
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2127388737778007233, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.y
@@ -161,7 +161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_text
-      value: Palm Plant
+      value: Red Palm Plant
       objectReference: {fileID: 0}
     - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_margin.w

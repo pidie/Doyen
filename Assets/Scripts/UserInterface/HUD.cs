@@ -8,35 +8,29 @@ namespace UserInterface
     {
         [SerializeField] private GameObject messageBoxPanel;
         [SerializeField] private TMP_Text messageBox;
-        
-        private static GameObject _inventoryPanel;
+        [SerializeField] private GameObject inventoryPanel;
 
         public static Action<string> OnDisplayMessageBox;
         public static Action OnHideMessageBox;
-
-        private void Awake()
-        {
-            _inventoryPanel = GameObject.Find("InventoryPanel");
-            _inventoryPanel.SetActive(false);
-            
-            messageBoxPanel.SetActive(false);
-        }
+        public static Action OnToggleInventoryPanel;
 
         private void OnEnable()
         {
             OnDisplayMessageBox += DisplayMessageBox;
             OnHideMessageBox += HideMessageBox;
+            OnToggleInventoryPanel += ToggleInventoryPanel;
         }
 
         private void OnDisable()
         {
             OnDisplayMessageBox -= DisplayMessageBox;
             OnHideMessageBox -= HideMessageBox;
+            OnToggleInventoryPanel -= ToggleInventoryPanel;
         }
 
-        public static void ToggleInventoryPanel()
+        public void ToggleInventoryPanel()
         {
-            _inventoryPanel.SetActive(!_inventoryPanel.activeSelf);
+            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
             TooltipManager.OnDestroyTooltip();
         }
 
