@@ -6,11 +6,9 @@ namespace UserInterface
 {
 	public class TooltipManager : MonoBehaviour
 	{
-		private TextMeshProUGUI _tooltipText;
-		private RectTransform _tooltipWindow;
 		private Tooltip _activeTooltip;
 
-		public static Action<string, Tooltip, Transform> OnCreateTooltip;
+		public static Action<string, string, Tooltip, Transform> OnCreateTooltip;
 		public static Action OnDestroyTooltip;
 
 		public static Vector2 Offset { get; private set; }
@@ -27,16 +25,22 @@ namespace UserInterface
 			OnDestroyTooltip -= DestroyTooltip;
 		}
 
-		public void CreateTooltip(string message, Tooltip tooltip, Transform parent)
+		public void CreateTooltip(string title, string contents, Tooltip tooltip, Transform parent)
 		{
 			_activeTooltip = tooltip;
-			var activeTooltipText = _activeTooltip.reference.text;
+			var activeTooltipTitle = _activeTooltip.reference.title;
+			var activeTooltipContents = _activeTooltip.reference.contents;
 			var activeTooltipWindow = _activeTooltip.reference.window;
 
-			activeTooltipText.text = message;
-			activeTooltipWindow.sizeDelta = new Vector2(activeTooltipText.preferredWidth > 200 ? 200 : activeTooltipText.preferredWidth,
-				activeTooltipText.preferredHeight);
+			activeTooltipTitle.text = title;
+			activeTooltipContents.text = contents;
+			activeTooltipWindow.sizeDelta = new Vector2(activeTooltipContents.preferredWidth > 300 ? 300 : activeTooltipTitle.preferredWidth,
+				activeTooltipTitle.preferredHeight + activeTooltipContents.preferredHeight);
 
+			activeTooltipTitle.transform.position = new Vector2(activeTooltipWindow.transform.position.x,  
+				activeTooltipWindow.transform.position.y + activeTooltipTitle.preferredHeight / 2);
+			activeTooltipContents.transform.position = new Vector2(activeTooltipTitle.transform.position.x, 
+				activeTooltipTitle.transform.position.y + activeTooltipTitle.preferredHeight - activeTooltipContents.preferredHeight / 2);
 			_activeTooltip = Instantiate(_activeTooltip, parent);
 
 			var tooltipSizeDelta = activeTooltipWindow.sizeDelta;
@@ -59,25 +63,22 @@ namespace UserInterface
 	[Serializable]
 	public struct TooltipReference
 	{
-		public TextMeshProUGUI text;
+		public TextMeshProUGUI title;
+		public TextMeshProUGUI contents;
 		public RectTransform window;
 
-		public TooltipReference(TextMeshProUGUI text, RectTransform window)
+		public TooltipReference(TextMeshProUGUI title, TextMeshProUGUI contents, RectTransform window)
 		{
-			this.text = text;
+			this.title = title;
+			this.contents = contents;
 			this.window = window;
 		}
 
-		public TooltipReference(TMP_Text text, RectTransform window)
+		public TooltipReference(TMP_Text title, TMP_Text contents, RectTransform window)
 		{
-			this.text = (TextMeshProUGUI) text;
+			this.title = (TextMeshProUGUI) title;
+			this.contents = (TextMeshProUGUI) contents;
 			this.window = window;
-		}
-
-		public TooltipReference(RectTransform window)
-		{
-			this.window = window;
-			text = window.GetComponentInChildren<TextMeshProUGUI>();
 		}
 	}
 }

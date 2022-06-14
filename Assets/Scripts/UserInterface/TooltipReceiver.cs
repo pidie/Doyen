@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,7 +12,8 @@ namespace UserInterface
 
         private Transform _parent;
         private InventoryItemSlot _slot;
-        private string _message;
+        private string _title;
+        private string _contents;
 
         private void Awake()
         {
@@ -19,7 +21,18 @@ namespace UserInterface
             _parent = GameObject.Find(parentName).transform;
         }
 
-        private void OnEnable() => _message = _slot.itemName;
+        private void OnEnable()
+        {
+            _title = _slot.itemName;
+            var props = _slot.data.values;
+
+            foreach (var prop in props)
+            {
+                _contents += $"{Globals.TitleCase(prop.name)}: {prop.value}\n";
+            }
+        }
+
+        private void OnDisable() => _contents = "";
 
         public void OnPointerEnter(PointerEventData eventData)
         {
@@ -33,7 +46,7 @@ namespace UserInterface
             TooltipManager.OnDestroyTooltip();
         }
 
-        private void ShowMessage() => TooltipManager.OnCreateTooltip(_message, tooltip, _parent);
+        private void ShowMessage() => TooltipManager.OnCreateTooltip(_title, _contents, tooltip, _parent);
 
         private IEnumerator MessageDelay()
         {

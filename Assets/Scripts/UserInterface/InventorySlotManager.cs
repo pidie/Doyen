@@ -32,6 +32,7 @@ namespace UserInterface
                     slot.icon.texture = item.ingredient.icon;
                     slot.quantityText.text = 1.ToString();
                     slot.itemName = item.ingredient.name;
+                    slot.data = item;
                     slot.gameObject.SetActive(true);
                 }
 
