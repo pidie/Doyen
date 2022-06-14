@@ -34,7 +34,11 @@ namespace UserInterface
             OnHideMessageBox -= HideMessageBox;
         }
 
-        public static void ToggleInventoryPanel() => _inventoryPanel.SetActive(!_inventoryPanel.activeSelf);
+        public static void ToggleInventoryPanel()
+        {
+            _inventoryPanel.SetActive(!_inventoryPanel.activeSelf);
+            TooltipManager.OnDestroyTooltip();
+        }
 
         public void DisplayMessageBox(string message = "")
         {
