@@ -139,53 +139,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4706307524551180624, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4706307524551180624, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4706307524551180624, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4706307524551180624, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8269257524282556649, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_Name
       value: InventoryItemTooltipWindow
-      objectReference: {fileID: 0}
-    - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
-      propertyPath: m_text
-      value: Red Palm Plant
-      objectReference: {fileID: 0}
-    - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
-      propertyPath: m_margin.w
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
-      propertyPath: m_margin.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
-      propertyPath: m_margin.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
-      propertyPath: m_margin.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}

@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 0.392}
+  m_Color: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 0.56078434}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -87,6 +87,26 @@ PrefabInstance:
     - target: {fileID: 4531007559511294057, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_Name
       value: InventoryItemTooltipText
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
+      propertyPath: m_text
+      value: Red Palm Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
+      propertyPath: m_margin.w
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
+      propertyPath: m_margin.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
+      propertyPath: m_margin.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
+      propertyPath: m_margin.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_Pivot.x
@@ -118,11 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_LocalPosition.x
