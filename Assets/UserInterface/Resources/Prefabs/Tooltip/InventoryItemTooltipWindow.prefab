@@ -94,6 +94,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
+      propertyPath: m_margin.w
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
+      propertyPath: m_margin.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
+      propertyPath: m_margin.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
+      propertyPath: m_margin.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_fontSizeMax
       value: 25
       objectReference: {fileID: 0}
@@ -101,13 +117,17 @@ PrefabInstance:
       propertyPath: m_fontSizeMin
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_RootOrder
@@ -119,7 +139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_AnchorMin.x
@@ -135,7 +155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -223,13 +243,17 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_RootOrder
@@ -249,7 +273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_SizeDelta.x
@@ -257,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_LocalPosition.x
