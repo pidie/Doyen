@@ -93,6 +93,14 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

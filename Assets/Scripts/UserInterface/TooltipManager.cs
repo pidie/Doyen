@@ -34,7 +34,7 @@ namespace UserInterface
 
 			activeTooltipTitle.text = title;
 			activeTooltipContents.text = contents;
-			activeTooltipWindow.sizeDelta = new Vector2(activeTooltipContents.preferredWidth > 300 ? 300 : activeTooltipTitle.preferredWidth,
+			activeTooltipWindow.sizeDelta = new Vector2(activeTooltipContents.preferredWidth > 300 ? 300 : activeTooltipContents.preferredWidth,
 				activeTooltipTitle.preferredHeight + activeTooltipContents.preferredHeight);
 
 			activeTooltipTitle.transform.position = new Vector2(activeTooltipWindow.transform.position.x,  
