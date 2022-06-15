@@ -36,16 +36,17 @@ namespace UserInterface
 			activeTooltipContents.text = contents;
 			activeTooltipWindow.sizeDelta = new Vector2(activeTooltipContents.preferredWidth > 300 ? 300 : activeTooltipContents.preferredWidth,
 				activeTooltipTitle.preferredHeight + activeTooltipContents.preferredHeight);
-			
-			_activeTooltip = Instantiate(_activeTooltip, parent);
 
 			activeTooltipContents.rectTransform.sizeDelta = new Vector2(activeTooltipWindow.sizeDelta.x,
 				activeTooltipContents.preferredHeight);
-			
-			activeTooltipTitle.transform.localPosition = Vector3.zero;
-			activeTooltipContents.transform.localPosition = Vector3.zero;
-			
 
+			activeTooltipTitle.rectTransform.anchoredPosition =
+				new Vector2(activeTooltipTitle.rectTransform.anchoredPosition.x, 0);
+			activeTooltipContents.rectTransform.anchoredPosition =
+				new Vector2(activeTooltipContents.rectTransform.anchoredPosition.x, 0);
+
+			_activeTooltip = Instantiate(_activeTooltip, parent);
+			
 			var tooltipSizeDelta = activeTooltipWindow.sizeDelta;
 			Offset = new Vector2(tooltipSizeDelta.x / 2, tooltipSizeDelta.y / 2);
 			_activeTooltip.transform.position = (Vector2) Input.mousePosition + Offset;

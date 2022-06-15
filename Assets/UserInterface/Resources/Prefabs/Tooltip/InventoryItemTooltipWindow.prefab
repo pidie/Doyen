@@ -91,7 +91,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_text
-      value: "\u2022 Purity\n\u2022 Life Span\n\u2022 Healing Modifier\n"
+      value: "\u2022 Purity\n\u2022 Life Span\n\u2022 Darkvision\n\u2022 Poison Resistance\n\u2022
+        Temporal Infusion\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_margin.w
@@ -151,11 +152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 206.81
+      value: 232.97
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 95.43
+      value: 152.92
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -191,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 72.270004
+      value: 101.015
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -225,7 +226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_text
-      value: Palm Plant
+      value: Blue Palm Plant
       objectReference: {fileID: 0}
     - target: {fileID: 5203242103406770590, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_margin.w
@@ -321,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -72.270004
+      value: -101.015
       objectReference: {fileID: 0}
     - target: {fileID: 9037088694665419317, guid: 941d925426d951840b944a8dbf5a23f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
