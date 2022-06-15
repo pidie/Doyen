@@ -14,6 +14,8 @@ public static class Globals
         { "MainMenu" ,  KeyCode.M }
     };
 
+    public static string bulletSymbol = "\u2022";
+
     public static KeyCode GetKeyBinding(string keycodeKey)
     {
         if (KeyBindings.ContainsKey(keycodeKey))

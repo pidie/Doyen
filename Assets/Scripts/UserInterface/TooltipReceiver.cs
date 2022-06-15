@@ -28,7 +28,7 @@ namespace UserInterface
 
             foreach (var prop in props)
             {
-                _contents += $"\u2022 {Globals.TitleCase(prop.name)}\n";
+                _contents += $"{Globals.bulletSymbol} {Globals.TitleCase(prop.name)}\n";
             }
         }
 
