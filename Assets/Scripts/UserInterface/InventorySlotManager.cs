@@ -13,7 +13,7 @@ namespace UserInterface
 
         private void OnEnable()
         {
-            var itemsAdded = new HashSet<Ingredient>();
+            var itemsAdded = new HashSet<IngredientData>();
             var slotModifier = 0;
             
             for (var i = 0; i < PlayerInventory.Items.Count; i++)
@@ -21,22 +21,22 @@ namespace UserInterface
                 var slot = _inventoryItemSlots[i + slotModifier];
                 var item = PlayerInventory.Items[i];
                 
-                if (itemsAdded.Contains(item.ingredient))
+                if (itemsAdded.Contains(item.ingredientData))
                 {
-                    var itemSlot = FindItemSlotByIngredient(item.ingredient);
+                    var itemSlot = FindItemSlotByIngredient(item.ingredientData);
                     itemSlot.quantityText.text = (int.Parse(itemSlot.quantityText.text) + 1).ToString();
                     slotModifier--;
                 }
                 else
                 {
-                    slot.icon.texture = item.ingredient.icon;
+                    slot.icon.texture = item.ingredientData.icon;
                     slot.quantityText.text = 1.ToString();
-                    slot.itemName = item.ingredient.name;
+                    slot.itemName = item.ingredientData.name;
                     slot.data = item;
                     slot.gameObject.SetActive(true);
                 }
 
-                itemsAdded.Add(item.ingredient);
+                itemsAdded.Add(item.ingredientData);
             }
         }
 
@@ -46,7 +46,7 @@ namespace UserInterface
                 slot.gameObject.SetActive(false);
         }
 
-        private InventoryItemSlot FindItemSlotByIngredient(Ingredient ingredient) =>
-            _inventoryItemSlots.FirstOrDefault(slot => slot.isActiveAndEnabled && slot.itemName == ingredient.name);
+        private InventoryItemSlot FindItemSlotByIngredient(IngredientData ingredientData) =>
+            _inventoryItemSlots.FirstOrDefault(slot => slot.isActiveAndEnabled && slot.itemName == ingredientData.name);
     }
 }

@@ -24,15 +24,8 @@ namespace UserInterface
         private void OnEnable()
         {
             _title = _slot.itemName;
-            var props = _slot.data.values;
-
-            foreach (var prop in props)
-            {
-                _contents += $"{Globals.bulletSymbol} {Globals.TitleCase(prop.name)}\n";
-            }
+            _contents = _slot.data.displayContents;
         }
-
-        private void OnDisable() => _contents = "";
 
         public void OnPointerEnter(PointerEventData eventData)
         {

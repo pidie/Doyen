@@ -3,7 +3,7 @@ using UnityEngine;
 
 [Serializable]
 [CreateAssetMenu(menuName = "Ingredients", fileName = "New Ingredient")]
-public class Ingredient : ScriptableObject
+public class IngredientData : ScriptableObject
 {
     public new string name;
     public Texture icon;

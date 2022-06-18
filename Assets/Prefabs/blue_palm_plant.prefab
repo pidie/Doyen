@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1809721008593918331}
   - component: {fileID: 5141462931886308892}
   - component: {fileID: 6956775851790911003}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: palm_plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7611994330379545921}
   - component: {fileID: 6722877910117142370}
   - component: {fileID: -16420571081459725}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: blue_palm_plant
   m_TagString: Collectable
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4460148804135478614}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.97439, y: 0.05000019, z: 0.031832695}
   m_LocalScale: {x: 0.008, y: 0.008, z: 0.008}
   m_ConstrainProportionsScale: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250eca5a178bf0c4fb4fb3f25aed8c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: {fileID: 11400000, guid: f6ea8cccef3fbf24f96f3806ef421758, type: 2}
+  ingredientData: {fileID: 11400000, guid: f6ea8cccef3fbf24f96f3806ef421758, type: 2}
   properties: []
 --- !u!114 &-16420571081459725
 MonoBehaviour:

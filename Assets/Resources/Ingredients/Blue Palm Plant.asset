@@ -27,7 +27,7 @@ MonoBehaviour:
     maximum: 1000
     value: 950
   properties:
-  - name: Darkvision
+  - name: darkvision
     enabled: 1
     minimum: 15
     maximum: 32

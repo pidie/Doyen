@@ -10,7 +10,7 @@ namespace Inventory
     [RequireComponent(typeof(Collider))]
     public class Collectable : MonoBehaviour
     {
-        [SerializeField] private Ingredient ingredient;
+        [SerializeField] private IngredientData ingredientData;
         [SerializeField] private List<IngredientPropertyValue> properties;
         
         private Collider _collider;
@@ -29,7 +29,7 @@ namespace Inventory
                     gameObject.SetActive(true);
                 }
                 
-                var data = new CollectableData(ingredient.name, ingredient, properties);
+                var data = new CollectableData(ingredientData.name, ingredientData, properties);
                 
                 if (!isActiveAtCall) 
                     gameObject.SetActive(false);
@@ -52,11 +52,11 @@ namespace Inventory
         {
             var defaultProperties = new[]
             {
-                ingredient.purity, 
-                ingredient.lifeSpan
+                ingredientData.purity, 
+                ingredientData.lifeSpan
             };
 
-            var allProperties = defaultProperties.Concat(ingredient.properties);
+            var allProperties = defaultProperties.Concat(ingredientData.properties);
             
             foreach (var property in allProperties)
             {
@@ -75,14 +75,20 @@ namespace Inventory
     public class CollectableData
     {
         public string name;
-        public Ingredient ingredient;
+        public string displayContents;
+        public IngredientData ingredientData;
         public List<IngredientPropertyValue> values;
 
-        public CollectableData(string name, Ingredient ingredient, List<IngredientPropertyValue> values)
+        public CollectableData(string name, IngredientData ingredientData, List<IngredientPropertyValue> values)
         {
             this.name = name;
-            this.ingredient = ingredient;
+            this.ingredientData = ingredientData;
             this.values = values;
+
+            displayContents = "";
+
+            foreach (var value in values.Where(value => value.name != "Purity" && value.name != "LifeSpan"))
+                displayContents += $"{Globals.bulletSymbol} {Globals.TitleCase(value.name)}\n";
         }
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5532918251245561510}
   - component: {fileID: 1337447272176337345}
   - component: {fileID: 3845751622861486534}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: palm_plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4356820312244245148}
   - component: {fileID: 619739359625834687}
   - component: {fileID: -724822312099641770}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: palm_plant
   m_TagString: Collectable
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250eca5a178bf0c4fb4fb3f25aed8c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: {fileID: 11400000, guid: 80e5e4bbcc98a9b49b7eb6c6be6d4731, type: 2}
+  ingredientData: {fileID: 11400000, guid: 80e5e4bbcc98a9b49b7eb6c6be6d4731, type: 2}
   properties: []
 --- !u!114 &-724822312099641770
 MonoBehaviour:

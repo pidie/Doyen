@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 503907393}
     m_Modifications:
-    - target: {fileID: 619642333972918601, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 3940211072984727532, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -181,10 +177,6 @@ PrefabInstance:
     - target: {fileID: 4460148804135478614, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
       propertyPath: m_Name
       value: blue_palm_plant (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4460148804135478614, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
@@ -1509,10 +1501,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1462863015}
     m_Modifications:
-    - target: {fileID: 6722991428424093332, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 7168540276894040113, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1560,10 +1548,6 @@ PrefabInstance:
     - target: {fileID: 7507524536706390667, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
       propertyPath: m_Name
       value: palm_plant (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7507524536706390667, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
@@ -2466,10 +2450,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1462863015}
     m_Modifications:
-    - target: {fileID: 6722991428424093332, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 7168540276894040113, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2517,10 +2497,6 @@ PrefabInstance:
     - target: {fileID: 7507524536706390667, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
       propertyPath: m_Name
       value: palm_plant (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7507524536706390667, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
@@ -2628,10 +2604,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1462863015}
     m_Modifications:
-    - target: {fileID: 6722991428424093332, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 7168540276894040113, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2679,10 +2651,6 @@ PrefabInstance:
     - target: {fileID: 7507524536706390667, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
       propertyPath: m_Name
       value: palm_plant
-      objectReference: {fileID: 0}
-    - target: {fileID: 7507524536706390667, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abefc09e5f94f94418122c502ccbdb9f, type: 3}
@@ -2900,10 +2868,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: red_palm_plant
       objectReference: {fileID: 0}
-    - target: {fileID: 29132241857593164, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 805211062774195702, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2948,10 +2912,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3826853798999075667, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
 --- !u!224 &730262381 stripped
@@ -2974,10 +2934,6 @@ PrefabInstance:
     - target: {fileID: 29132241857593164, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
       propertyPath: m_Name
       value: red_palm_plant (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 29132241857593164, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 805211062774195702, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
       propertyPath: m_RootOrder
@@ -3022,10 +2978,6 @@ PrefabInstance:
     - target: {fileID: 805211062774195702, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826853798999075667, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
@@ -3923,10 +3875,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: red_palm_plant (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 29132241857593164, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 805211062774195702, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3970,10 +3918,6 @@ PrefabInstance:
     - target: {fileID: 805211062774195702, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826853798999075667, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
@@ -4891,10 +4835,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 503907393}
     m_Modifications:
-    - target: {fileID: 619642333972918601, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 3940211072984727532, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -4942,10 +4882,6 @@ PrefabInstance:
     - target: {fileID: 4460148804135478614, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
       propertyPath: m_Name
       value: blue_palm_plant (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4460148804135478614, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
@@ -6014,10 +5950,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 503907393}
     m_Modifications:
-    - target: {fileID: 619642333972918601, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 3940211072984727532, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6065,10 +5997,6 @@ PrefabInstance:
     - target: {fileID: 4460148804135478614, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
       propertyPath: m_Name
       value: blue_palm_plant (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4460148804135478614, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
@@ -6127,10 +6055,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 503907393}
     m_Modifications:
-    - target: {fileID: 619642333972918601, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 3940211072984727532, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6179,10 +6103,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: blue_palm_plant (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 4460148804135478614, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
 --- !u!4 &1887596594 stripped
@@ -6202,10 +6122,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 503907393}
     m_Modifications:
-    - target: {fileID: 619642333972918601, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 3940211072984727532, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -6253,10 +6169,6 @@ PrefabInstance:
     - target: {fileID: 4460148804135478614, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
       propertyPath: m_Name
       value: blue_palm_plant (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4460148804135478614, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
@@ -7071,10 +6983,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 503907393}
     m_Modifications:
-    - target: {fileID: 619642333972918601, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 3940211072984727532, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -7123,10 +7031,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: blue_palm_plant
       objectReference: {fileID: 0}
-    - target: {fileID: 4460148804135478614, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dcead6c63f27e246be87b9d87588bde, type: 3}
 --- !u!4 &2522706096917917007 stripped
@@ -7149,10 +7053,6 @@ PrefabInstance:
     - target: {fileID: 29132241857593164, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
       propertyPath: m_Name
       value: red_palm_plant (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 29132241857593164, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 805211062774195702, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
       propertyPath: m_RootOrder
@@ -7197,10 +7097,6 @@ PrefabInstance:
     - target: {fileID: 805211062774195702, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3826853798999075667, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3af476e918414ac4ca8155c1c1982a48, type: 3}
