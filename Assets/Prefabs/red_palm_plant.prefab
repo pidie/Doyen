@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 805211062774195702}
   - component: {fileID: 6062375789599471451}
-  - component: {fileID: 6975701977037804920}
   - component: {fileID: 6912534124243255404}
+  - component: {fileID: 4140157193230831563}
   m_Layer: 7
   m_Name: red_palm_plant
   m_TagString: Collectable
@@ -49,20 +49,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8015814089210019660, guid: 6ad833650af9c3c499913f8061e24ea9, type: 3}
---- !u!114 &6975701977037804920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 29132241857593164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 250eca5a178bf0c4fb4fb3f25aed8c47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientData: {fileID: 11400000, guid: eeae66542eb80484c8e06d271794cc90, type: 2}
-  properties: []
 --- !u!114 &6912534124243255404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +67,20 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &4140157193230831563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29132241857593164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae6b1b5b4544b6faf4cbffd959276d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientData: {fileID: 11400000, guid: eeae66542eb80484c8e06d271794cc90, type: 2}
+  properties: []
 --- !u!1 &3826853798999075667
 GameObject:
   m_ObjectHideFlags: 0

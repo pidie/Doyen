@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2127388737778007233, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 87.04
+      value: 115.79
       objectReference: {fileID: 0}
     - target: {fileID: 2127388737778007233, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_LocalPosition.x
@@ -150,7 +150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5154018788005865949, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 37.93
+      value: 66.68
       objectReference: {fileID: 0}
     - target: {fileID: 5154018788005865949, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -162,11 +162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8275735599581153910, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_text
-      value: "\u2022Healing Modifier\n"
+      value: "\u2022 Fire Resistance\n\u2022 Fire Breathing\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_text
-      value: Palm Plant
+      value: Red Palm Plant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
