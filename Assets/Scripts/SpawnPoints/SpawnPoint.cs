@@ -10,22 +10,22 @@ namespace SpawnPoints
 	{
 		Sparse,
 		Scattered,
-		Typical,
+		Average,
 		Plentiful,
 		Packed
 	}
 	[ExecuteInEditMode]
-	public class IngredientSpawnPoint : MonoBehaviour
+	public class SpawnPoint : MonoBehaviour
 	{
-		[SerializeField] private GameObject ingredient;
+		[SerializeField] private GameObject itemToSpawn;
 		[SerializeField] private GameObject node;
-		[SerializeField] private SpawnPointDensity density = SpawnPointDensity.Typical;
+		[SerializeField] private SpawnPointDensity density = SpawnPointDensity.Average;
+		[Tooltip("Adjust this value when working with items that use large models.")]
 		[SerializeField] private float distanceBetweenNodes = 1f;
 		
 		private int _spawnerDiameter;
 		private Vector3[] _nodePositions;
 		private float _densityMultiplier;
-		private bool _spawned;
 		
 		private void Awake() => enabled = true;
 
@@ -46,9 +46,8 @@ namespace SpawnPoints
 			_spawnerDiameter = (int) transform.localScale.x;
 			SetDensity();
 			_nodePositions = new Vector3[(int) Math.Round(_spawnerDiameter * _densityMultiplier)];
-			gameObject.name = $"{Globals.TitleCase(ingredient.name)} Spawner";
+			gameObject.name = $"{Globals.TitleCase(itemToSpawn.name)} Spawner";
 			PlaceNodes();
-			_spawned = true;
 		}
 
 		private void Despawn()
@@ -69,7 +68,7 @@ namespace SpawnPoints
 			{
 				SpawnPointDensity.Sparse => 0.25f,
 				SpawnPointDensity.Scattered => 0.5f,
-				SpawnPointDensity.Typical => 1f,
+				SpawnPointDensity.Average => 1f,
 				SpawnPointDensity.Plentiful => 1.5f,
 				SpawnPointDensity.Packed => 2f,
 				_ => default
@@ -97,7 +96,6 @@ namespace SpawnPoints
 						continue;
 					}
 
-				// nodeLocation = new Vector3(nodeLocation.x, hit.collider.transform.position.y, nodeLocation.z);
 				nodeLocation = new Vector3(nodeLocation.x, hit.point.y, nodeLocation.z);
 
 				for (var j = i - 1; j >= 0; j--)
@@ -118,12 +116,13 @@ namespace SpawnPoints
 			{
 				var newNode = Instantiate(node, position, Quaternion.identity, transform);
 				newNode.GetComponent<MeshRenderer>().enabled = false;
-				var n = newNode.AddComponent<IngredientNode>();
-				n.ingredient = ingredient;
-				n.SpawnIngredient();
+				var n = newNode.GetComponent(typeof(SpawnNode)) as SpawnNode;
+				if (n == null) throw new NullReferenceException($"No derivative of SpawnNode was found on {gameObject.name}! Was a node type properly passed in?");
+				n.item = itemToSpawn;
+				n.SpawnItem();
 				var scaling = node.transform.localScale.x / _spawnerDiameter;
 				newNode.transform.localScale = new Vector3(scaling, scaling,scaling);
-				newNode.name = $"{Globals.TitleCase(ingredient.name)} Node {count}";
+				newNode.name = $"{Globals.TitleCase(itemToSpawn.name)} Node {count}";
 				count++;
 			}
 		}
@@ -132,11 +131,11 @@ namespace SpawnPoints
 		private void OnDrawGizmos()
 		{
 			var radius = transform.localScale.x * 0.5f;
-			var icon = AssetDatabase.GetAssetPath(ingredient.GetComponent<Ingredient>().Data.ingredientData.icon);
+			var iconPath = AssetDatabase.GetAssetPath(itemToSpawn.GetComponent<Collectable>().Data.icon);
 
 			Gizmos.color = Color.cyan;
 			Gizmos.DrawWireSphere(transform.position, radius);
-			Gizmos.DrawIcon(transform.position, icon);
+			Gizmos.DrawIcon(transform.position, iconPath);
 		}
 
 		private void OnDrawGizmosSelected()
@@ -146,19 +145,5 @@ namespace SpawnPoints
 			Gizmos.DrawWireSphere(transform.position, radius);
 		}
 		#endif
-	}
-
-	public class IngredientNode : MonoBehaviour
-	{
-		public GameObject ingredient;
-		public bool hasBeenCollected;
-
-		public void Destroy() => DestroyImmediate(gameObject);
-
-		public void SpawnIngredient()
-		{
-			var t = Instantiate(ingredient, transform.position, Quaternion.identity, transform);
-			t.transform.localScale *= 4;
-		}
 	}
 }
