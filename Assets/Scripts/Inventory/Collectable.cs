@@ -34,6 +34,7 @@ namespace Inventory
     {
         public string name;
         public string displayContents;
+        public Texture icon;
         public IngredientData ingredientData;
         public List<IngredientPropertyValue> values;
 
@@ -43,6 +44,7 @@ namespace Inventory
             this.ingredientData = ingredientData;
             this.values = values;
 
+            icon = ingredientData.icon;
             displayContents = "";
 
             foreach (var value in values.Where(value => value.name != "Purity" && value.name != "LifeSpan"))
