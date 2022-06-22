@@ -50,6 +50,7 @@ MonoBehaviour:
   ingredient: {fileID: 0}
   node: {fileID: 1371352636719029434, guid: cdb807f824ee99442bc9265af21e0af7, type: 3}
   density: 2
+  distanceBetweenNodes: 1
 --- !u!33 &7997876886557163642
 MeshFilter:
   m_ObjectHideFlags: 0
