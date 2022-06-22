@@ -1,4 +1,6 @@
 using System;
+using Inventory;
+using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -23,26 +25,42 @@ namespace SpawnPoints
 		private int _spawnerDiameter;
 		private Vector3[] _nodePositions;
 		private float _densityMultiplier;
+		private bool _spawned;
+		
+		private void Awake() => enabled = true;
 
 		private void OnEnable()
+		{
+			EditorApplication.playModeStateChanged += HandleOnPlaymodeStateChanged;
+			Spawn();
+		}
+
+		private void OnDisable()
+		{
+			EditorApplication.playModeStateChanged -= HandleOnPlaymodeStateChanged;
+			Despawn();
+		}
+
+		private void Spawn()
 		{
 			_spawnerDiameter = (int) transform.localScale.x;
 			SetDensity();
 			_nodePositions = new Vector3[(int) Math.Round(_spawnerDiameter * _densityMultiplier)];
 			gameObject.name = $"{Globals.TitleCase(ingredient.name)} Spawner";
 			PlaceNodes();
+			_spawned = true;
 		}
 
-		private void OnDisable()
+		private void Despawn()
 		{
 			foreach (var child in GetComponentsInChildren<IngredientNode>())
-			{
-				#if UNITY_EDITOR
 				child.Destroy();
-				#else
-				Destroy(child.gameObject);
-				#endif
-			}
+		}
+
+		private void HandleOnPlaymodeStateChanged(PlayModeStateChange state)
+		{
+			if (state is PlayModeStateChange.ExitingPlayMode or PlayModeStateChange.EnteredEditMode)
+				enabled = false;
 		}
 
 		private void SetDensity()
@@ -79,7 +97,8 @@ namespace SpawnPoints
 						continue;
 					}
 
-				nodeLocation = new Vector3(nodeLocation.x, hit.collider.transform.position.y, nodeLocation.z);
+				// nodeLocation = new Vector3(nodeLocation.x, hit.collider.transform.position.y, nodeLocation.z);
+				nodeLocation = new Vector3(nodeLocation.x, hit.point.y, nodeLocation.z);
 
 				for (var j = i - 1; j >= 0; j--)
 				{
@@ -113,8 +132,11 @@ namespace SpawnPoints
 		private void OnDrawGizmos()
 		{
 			var radius = transform.localScale.x * 0.5f;
+			var icon = AssetDatabase.GetAssetPath(ingredient.GetComponent<Ingredient>().Data.ingredientData.icon);
+
 			Gizmos.color = Color.cyan;
 			Gizmos.DrawWireSphere(transform.position, radius);
+			Gizmos.DrawIcon(transform.position, icon);
 		}
 
 		private void OnDrawGizmosSelected()
