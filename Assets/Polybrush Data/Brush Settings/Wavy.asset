@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c229c73eab51b9478029375e5ca314a, type: 3}
+  m_Name: Wavy
+  m_EditorClassIdentifier: 
+  brushRadiusMin: 0.001
+  brushRadiusMax: 5
+  _radius: 3.19
+  _falloff: 0.094
+  _strength: 0.624
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.49762714
+      inSlope: 0.010745031
+      outSlope: 0.010745031
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.8978372
+    - serializedVersion: 3
+      time: 0.24596143
+      value: 0.91058344
+      inSlope: -0.0040210597
+      outSlope: -0.0040210597
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6275125
+      value: 0.21761894
+      inSlope: -0.057512905
+      outSlope: -0.057512905
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.9999759
+    - serializedVersion: 3
+      time: 0.9666748
+      value: 0.5
+      inSlope: 0.018457325
+      outSlope: 0.018457325
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0
+    m_PreInfinity: 0
+    m_PostInfinity: 0
+    m_RotationOrder: 4
+  allowNonNormalizedFalloff: 0
