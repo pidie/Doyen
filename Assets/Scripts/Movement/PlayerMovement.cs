@@ -20,7 +20,8 @@ namespace Movement
 
         private void Update()
         {
-            var runningSpeed = Input.GetKey(KeyCode.LeftShift) ? runningSpeedMultiplier : 1f;
+            var isRunning = Input.GetKey(KeyCode.LeftShift);
+            var runningSpeed = isRunning ? runningSpeedMultiplier : 1f;
 
             if (groundCheck.isGrounded && _gravVelocity.y < 0)
                 _gravVelocity.y = -2f;
@@ -33,6 +34,23 @@ namespace Movement
             moveVelocity *= movementSpeed * runningSpeed * Time.deltaTime;
 
             _controller.Move(transform.rotation * moveVelocity);
+
+            if (moveVelocity.z > 0.05f)
+                if (isRunning)
+                {
+                    AnimatorStateController.OnPlayerRun(true);
+                    AnimatorStateController.OnPlayerWalk(true);
+                }
+                else
+                {
+                    AnimatorStateController.OnPlayerRun(false);
+                    AnimatorStateController.OnPlayerWalk(true);
+                }
+            else
+            {
+                AnimatorStateController.OnPlayerRun(false);
+                AnimatorStateController.OnPlayerWalk(false);
+            }
 
             if (Input.GetButtonDown("Jump") && groundCheck.isGrounded)
                 _gravVelocity.y = Mathf.Sqrt(jumpHeight * -2f * Gravity);
