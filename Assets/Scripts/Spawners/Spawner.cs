@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace SpawnPoints
+namespace Spawners
 {
 	public enum SpawnPointDensity
 	{
@@ -15,7 +15,7 @@ namespace SpawnPoints
 		Packed
 	}
 	[ExecuteInEditMode]
-	public class SpawnPoint : MonoBehaviour
+	public class Spawner : MonoBehaviour
 	{
 		[SerializeField] private GameObject itemToSpawn;
 		[SerializeField] private GameObject node;
@@ -52,8 +52,8 @@ namespace SpawnPoints
 
 		private void Despawn()
 		{
-			foreach (var child in GetComponentsInChildren<IngredientNode>())
-				child.Destroy();
+			foreach (var child in GetComponentsInChildren<SpawnNode>())
+				child.DestroyNode();
 		}
 
 		private void HandleOnPlaymodeStateChanged(PlayModeStateChange state)
