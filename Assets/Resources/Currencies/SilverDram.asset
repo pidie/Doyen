@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SilverDram
   m_EditorClassIdentifier: 
   name: Silver Dram
-  icon: {fileID: 2800000, guid: adf8ca6d51d2042498df4e3727644f92, type: 3}
+  icon: {fileID: 2800000, guid: 7f2c00a070053e94bae8ab501b7dcc36, type: 3}
   worth: 5
