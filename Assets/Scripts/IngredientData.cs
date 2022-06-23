@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(menuName = "Ingredients", fileName = "New Ingredient")]
+[CreateAssetMenu(menuName = "Collectable/Ingredient", fileName = "New Ingredient")]
 public class IngredientData : ScriptableObject
 {
     public new string name;

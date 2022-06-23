@@ -38,6 +38,7 @@ namespace Inventory
         public Texture icon;
         public IngredientData ingredientData;
         public List<IngredientPropertyValue> values;
+        public int worth;
 
         public CollectableData(string name, IngredientData ingredientData, List<IngredientPropertyValue> values)
         {
@@ -50,6 +51,12 @@ namespace Inventory
 
             foreach (var value in values.Where(value => value.name != "Purity" && value.name != "LifeSpan"))
                 displayContents += $"{Globals.bulletSymbol} {Globals.TitleCase(value.name)}\n";
+        }
+
+        public CollectableData(string name, CurrencyData currencyData)
+        {
+            this.name = name;
+            icon = currencyData.icon;
         }
     }
 }

@@ -2,7 +2,7 @@
 using Inventory;
 using UnityEngine;
 
-namespace SpawnPoints
+namespace Spawners
 {
 	public class IngredientNode : SpawnNode
 	{

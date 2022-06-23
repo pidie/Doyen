@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SpawnPoints;
+using Spawners;
 using UnityEngine;
 using UserInterface;
 
@@ -38,6 +38,11 @@ namespace Inventory
             {
                 var node = other.GetComponent<SpawnNode>();
                 if (node.hasBeenCollected) return;
+                if (node.IsAutoCollected)
+                {
+                    _targetNode = node;
+                    TryPickUpItem();
+                }
                 nodesInRange.Add(node);
             }
         }

@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3547892991901195809}
+  - component: {fileID: 5126902851972989717}
   - component: {fileID: 4083297092842441137}
   - component: {fileID: 1118569035843443739}
   - component: {fileID: 8700872663938721009}
-  - component: {fileID: 8377415710394988489}
   m_Layer: 0
-  m_Name: SpawnNode - GENERIC DO NOT USE
+  m_Name: IngredientSpawnNode
   m_TagString: SpawnNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +35,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5126902851972989717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371352636719029434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7c44e3d69849cfbe3909026aabd3d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  hasBeenCollected: 0
 --- !u!33 &4083297092842441137
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -98,17 +112,3 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8377415710394988489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371352636719029434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce7c44e3d69849cfbe3909026aabd3d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 0}
-  hasBeenCollected: 0

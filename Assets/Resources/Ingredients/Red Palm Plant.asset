@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Red Palm Plant
   icon: {fileID: 2800000, guid: 791e201c0180f5648bfb6e6bd1f5dedd, type: 3}
+  timeToRegrow: 300
   purity:
     name: Purity
     enabled: 1
