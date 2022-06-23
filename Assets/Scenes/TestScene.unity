@@ -1465,7 +1465,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7997876886557163623, guid: 720b1486a7509b54e8f142bc0f01852a, type: 3}
       propertyPath: m_Name
-      value: SpawnPoint
+      value: Silver Dram Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 7997876886557163640, guid: 720b1486a7509b54e8f142bc0f01852a, type: 3}
       propertyPath: m_RootOrder
@@ -4314,7 +4314,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7997876886557163623, guid: 720b1486a7509b54e8f142bc0f01852a, type: 3}
       propertyPath: m_Name
-      value: Spawner (1)
+      value: Jade Shekel Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 7997876886557163640, guid: 720b1486a7509b54e8f142bc0f01852a, type: 3}
       propertyPath: m_RootOrder
@@ -5386,7 +5386,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7997876886557163623, guid: 720b1486a7509b54e8f142bc0f01852a, type: 3}
       propertyPath: m_Name
-      value: Spawner
+      value: Gold Aurum Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 7997876886557163640, guid: 720b1486a7509b54e8f142bc0f01852a, type: 3}
       propertyPath: m_RootOrder
@@ -6115,7 +6115,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7997876886557163623, guid: 720b1486a7509b54e8f142bc0f01852a, type: 3}
       propertyPath: m_Name
-      value: Spawner
+      value: Copper Obol Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 7997876886557163640, guid: 720b1486a7509b54e8f142bc0f01852a, type: 3}
       propertyPath: m_RootOrder
@@ -6884,7 +6884,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7997876886557163623, guid: 720b1486a7509b54e8f142bc0f01852a, type: 3}
       propertyPath: m_Name
-      value: Spawner
+      value: Blue Palm Plant Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 7997876886557163640, guid: 720b1486a7509b54e8f142bc0f01852a, type: 3}
       propertyPath: m_RootOrder

@@ -6,20 +6,20 @@ using Random = UnityEngine.Random;
 
 namespace Spawners
 {
-	public enum SpawnPointDensity
+	public enum SpawnNodeDensity
 	{
-		Sparse,
-		Scattered,
+		VeryLow,
+		Low,
 		Average,
-		Plentiful,
-		Packed
+		High,
+		VeryHigh
 	}
 	[ExecuteInEditMode]
 	public class Spawner : MonoBehaviour
 	{
 		[SerializeField] private GameObject itemToSpawn;
 		[SerializeField] private GameObject node;
-		[SerializeField] private SpawnPointDensity density = SpawnPointDensity.Average;
+		[SerializeField] private SpawnNodeDensity density = SpawnNodeDensity.Average;
 		[Tooltip("Adjust this value when working with items that use large models.")]
 		[SerializeField] private float distanceBetweenNodes = 1f;
 		
@@ -66,11 +66,11 @@ namespace Spawners
 		{
 			_densityMultiplier = density switch
 			{
-				SpawnPointDensity.Sparse => 0.25f,
-				SpawnPointDensity.Scattered => 0.5f,
-				SpawnPointDensity.Average => 1f,
-				SpawnPointDensity.Plentiful => 1.5f,
-				SpawnPointDensity.Packed => 2f,
+				SpawnNodeDensity.VeryLow => 0.25f,
+				SpawnNodeDensity.Low => 0.5f,
+				SpawnNodeDensity.Average => 1f,
+				SpawnNodeDensity.High => 1.5f,
+				SpawnNodeDensity.VeryHigh => 2f,
 				_ => default
 			};
 		}
