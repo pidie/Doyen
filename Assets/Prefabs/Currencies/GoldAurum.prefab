@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8267570650396673435}
   - component: {fileID: 3483593137701665801}
   m_Layer: 0
-  m_Name: SilverDram
+  m_Name: GoldAurum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161d9ac3e50cd7145991ede4633b16ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currencyData: {fileID: 11400000, guid: 0c1230690ab88a540a2283a3bc9cb336, type: 2}
+  currencyData: {fileID: 11400000, guid: 4e24266e7812a914f99a2a6690dba9f2, type: 2}
 --- !u!64 &8267570650396673435
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 23d9b515503a5574f81d273e8bea9887, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6aba030c26a8d47448814a5716a568c0, type: 2}
+      objectReference: {fileID: 2100000, guid: e1edcfabfd5723c43817806161a1479f, type: 2}
     - target: {fileID: 919132149155446097, guid: 23d9b515503a5574f81d273e8bea9887, type: 3}
       propertyPath: m_Name
       value: GoldCoinBlank
