@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Blue Palm Plant
   icon: {fileID: 2800000, guid: cd77aa439196d7645b126ee39ff36e5a, type: 3}
+  timeToRegrow: 300
   purity:
     name: Purity
     enabled: 1

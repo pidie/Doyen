@@ -6,6 +6,7 @@ using UnityEngine;
 namespace Inventory
 {
     [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(Outline))]
     public abstract class Collectable : MonoBehaviour
     {
         protected Collider col;

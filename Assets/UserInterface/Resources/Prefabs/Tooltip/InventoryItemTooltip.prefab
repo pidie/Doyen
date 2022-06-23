@@ -54,6 +54,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 5213305366778470828}
     m_Modifications:
     - target: {fileID: 2127388737778007233, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
@@ -86,11 +87,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2127388737778007233, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 232.97
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2127388737778007233, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 115.79
+      value: 49.11
       objectReference: {fileID: 0}
     - target: {fileID: 2127388737778007233, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_LocalPosition.x
@@ -146,11 +147,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5154018788005865949, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 232.97
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5154018788005865949, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 66.68
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5154018788005865949, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -162,13 +163,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8275735599581153910, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_text
-      value: "\u2022 Darkvision\n\u2022 Poison Resistance\n"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_text
-      value: Blue Palm Plant
+      value: Red Palm Plant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
 --- !u!224 &75444348418605800 stripped
 RectTransform:

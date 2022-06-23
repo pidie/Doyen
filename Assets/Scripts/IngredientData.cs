@@ -7,6 +7,8 @@ public class IngredientData : ScriptableObject
 {
     public new string name;
     public Texture icon;
+    [Range(5, 600)]
+    public int timeToRegrow;
     
     [Header("Default Properties")]
     public IngredientProperty purity = new ("Purity", true, 0, 1, 0.75f);

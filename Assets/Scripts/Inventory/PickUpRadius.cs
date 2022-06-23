@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SpawnPoints;
 using UnityEngine;
 using UserInterface;
 
@@ -9,91 +10,101 @@ namespace Inventory
     public class PickUpRadius : MonoBehaviour
     {
         [SerializeField] private float detectionRadius;
-        [SerializeField] private List<Collectable> collectablesInRange = new ();
+        [SerializeField] private List<SpawnNode> nodesInRange = new ();
 
         private SphereCollider _detectionSphere;
-        private Collectable _targetCollectable;
+        private SpawnNode _targetNode;
 
         public static Action itemPickUpRequested;
+        public static Action<SpawnNode> nodeCollected;
+        public static Action<SpawnNode> nodeRefreshed;
 
         private void Awake()
         {
             _detectionSphere = GetComponent<SphereCollider>();
             _detectionSphere.radius = detectionRadius;
-            _targetCollectable = null;
+            _targetNode = null;
             
             itemPickUpRequested += TryPickUpItem;
+            nodeCollected += OnNodeCollected;
+            nodeRefreshed += OnNodeRefreshed;
         }
 
         private void Update() => DetermineTargetCollectable();
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Collectable"))
+            if (other.CompareTag("SpawnNode"))
             {
-                var collectable = other.GetComponent<Collectable>();
-                collectablesInRange.Add(collectable);
+                var node = other.GetComponent<SpawnNode>();
+                if (node.hasBeenCollected) return;
+                nodesInRange.Add(node);
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Collectable"))
+            if (other.CompareTag("SpawnNode"))
             {
-                var collectable = other.GetComponent<Collectable>();
-                collectable.ToggleOutlineOff();
-                collectablesInRange.Remove(collectable);
-                if (collectablesInRange.Count < 1)
+                var node = other.GetComponent<SpawnNode>();
+                node.Collectable.ToggleOutlineOff();
+                nodesInRange.Remove(node);
+                if (nodesInRange.Count < 1)
                 {
-                    _targetCollectable = null;
+                    _targetNode = null;
                     CheckForHideMessageBox();
                 }
             }
         }
-        
+
+        private void OnNodeCollected(SpawnNode node) => nodesInRange.Remove(node);
+
+        private void OnNodeRefreshed(SpawnNode node) => nodesInRange.Add(node);
+
         public void TryPickUpItem()
         {
-            var item = _targetCollectable;
+            if (_targetNode == null) return;
+            
+            var item = _targetNode.Collectable;
 
             if (item != null)
             {
                 PlayerInventory.AddItem(item.Data);
-                Destroy(item.gameObject);
-                collectablesInRange.Remove(item);
-                _targetCollectable = null;
+                _targetNode.HandlePickUp();
+                _targetNode = null;
                 CheckForHideMessageBox();
             }
         }
 
         private void CheckForHideMessageBox()
         {
-            if (collectablesInRange.Count < 1)
+            if (nodesInRange.Count < 1)
                 HUD.OnHideMessageBox();
         }
 
-        private void ShowMessageBox(Collectable collectable)
+        private void ShowMessageBox(SpawnNode node)
         {
-            _targetCollectable = collectable;
-            _targetCollectable.ToggleOutlineOn();
-            HUD.OnDisplayMessageBox($"{collectable.Data.name}\nPress {Globals.GetKeyBinding("Interact")} to pick up");
+            _targetNode = node;
+            _targetNode.Collectable.ToggleOutlineOn();
+            HUD.OnDisplayMessageBox($"{_targetNode.Collectable.Data.name}\nPress {Globals.GetKeyBinding("Interact")} to pick up");
         }
 
         private void DetermineTargetCollectable()
         {
-            if (collectablesInRange.Count > 0)
+            if (nodesInRange.Count > 0)
             {
-                foreach (var collectable in collectablesInRange.Where(collectable => collectable != _targetCollectable))
+                foreach (var node in nodesInRange.Where(node => node != _targetNode))
                 {
-                    if (_targetCollectable == null)
-                        ShowMessageBox(collectable);
+                    if (_targetNode == null)
+                        ShowMessageBox(node);
 
-                    var currentTargetDistance = Vector3.Distance(transform.position, _targetCollectable.transform.position);
-                    var potentialTargetDistance = Vector3.Distance(transform.position, collectable.transform.position);
+                    var currentTargetDistance = Vector3.Distance(transform.position, _targetNode.transform.position);
+                    var potentialTargetDistance = Vector3.Distance(transform.position, node.transform.position);
 
                     if (potentialTargetDistance < currentTargetDistance)
                     {
-                        _targetCollectable.ToggleOutlineOff();
-                        ShowMessageBox(collectable);
+                        _targetNode.Collectable.ToggleOutlineOff();
+                        ShowMessageBox(node);
                     }
                 }
             }
