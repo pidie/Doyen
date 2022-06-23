@@ -89,6 +89,13 @@ namespace Spawners
 				
 				var nodeLocation = Random.insideUnitSphere * _spawnerDiameter * 0.5f;
 				nodeLocation += transform.position;
+				// todo : figure out why the inclusion of the layer mask causes the editor to crash
+				// if (!Physics.Raycast(nodeLocation + new Vector3(0, -1, 0), Vector3.up, out var hit, _spawnerDiameter + 1, LayerMask.NameToLayer("Ground")))
+				// 	if (!Physics.Raycast(nodeLocation + new Vector3(0, 1, 0), Vector3.down, out hit, _spawnerDiameter + 1, LayerMask.NameToLayer("Ground")))
+				// 	{
+				// 		i--;
+				// 		continue;
+				// 	}
 				if (!Physics.Raycast(nodeLocation + new Vector3(0, -1, 0), Vector3.up, out var hit, _spawnerDiameter + 1))
 					if (!Physics.Raycast(nodeLocation + new Vector3(0, 1, 0), Vector3.down, out hit, _spawnerDiameter + 1))
 					{
