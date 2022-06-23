@@ -16,8 +16,8 @@ namespace Inventory
         private SpawnNode _targetNode;
 
         public static Action itemPickUpRequested;
-        public static Action<SpawnNode> nodeCollected;
-        public static Action<SpawnNode> nodeRefreshed;
+        public static Action<SpawnNode> onNodeCollected;
+        public static Action<SpawnNode> onNodeRefreshed;
 
         private void Awake()
         {
@@ -26,8 +26,8 @@ namespace Inventory
             _targetNode = null;
             
             itemPickUpRequested += TryPickUpItem;
-            nodeCollected += OnNodeCollected;
-            nodeRefreshed += OnNodeRefreshed;
+            onNodeCollected += NodeCollected;
+            onNodeRefreshed += NodeRefreshed;
         }
 
         private void Update() => DetermineTargetCollectable();
@@ -43,7 +43,8 @@ namespace Inventory
                     _targetNode = node;
                     TryPickUpItem();
                 }
-                nodesInRange.Add(node);
+                else
+                    nodesInRange.Add(node);
             }
         }
 
@@ -62,9 +63,9 @@ namespace Inventory
             }
         }
 
-        private void OnNodeCollected(SpawnNode node) => nodesInRange.Remove(node);
+        private void NodeCollected(SpawnNode node) => nodesInRange.Remove(node);
 
-        private void OnNodeRefreshed(SpawnNode node) => nodesInRange.Add(node);
+        private void NodeRefreshed(SpawnNode node) => nodesInRange.Add(node);
 
         public void TryPickUpItem()
         {

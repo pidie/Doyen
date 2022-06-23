@@ -12,7 +12,7 @@ namespace Spawners
 		{
 			if (hasBeenCollected) return;
 
-			PickUpRadius.nodeCollected(this);
+			PickUpRadius.onNodeCollected(this);
 			Collectable.ToggleOutlineOff();
 			_originalScale = instance.transform.localScale;
 			hasBeenCollected = true;
@@ -25,7 +25,7 @@ namespace Spawners
 			yield return new WaitForSeconds(Collectable.Data.ingredientData.timeToRegrow);
 			instance.transform.localScale = _originalScale;
 			hasBeenCollected = false;
-			PickUpRadius.nodeRefreshed(this);
+			PickUpRadius.onNodeRefreshed(this);
 		}
 	}
 }

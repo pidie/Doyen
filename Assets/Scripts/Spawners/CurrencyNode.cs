@@ -12,7 +12,7 @@ namespace Spawners
 
 		public override void HandlePickUp()
 		{
-			PickUpRadius.nodeCollected(this);
+			PickUpRadius.onNodeCollected(this);
 			InventoryCurrencyUpdater.onGainMoney(Collectable.Data.worth);
 			Destroy(gameObject);
 		}
