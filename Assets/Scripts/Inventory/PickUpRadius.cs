@@ -74,7 +74,9 @@ namespace Inventory
 
             if (item != null)
             {
-                PlayerInventory.AddItem(item.Data);
+                if (_targetNode.GetType() != typeof(CurrencyNode))
+                    InventoryManager.Instance.inventory.AddItem(item.Data);
+                
                 _targetNode.HandlePickUp();
                 _targetNode = null;
                 CheckForHideMessageBox();

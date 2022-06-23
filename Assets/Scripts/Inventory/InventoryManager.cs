@@ -7,6 +7,8 @@ namespace Inventory
 	{
 		public static InventoryManager Instance;
 		public UnityEvent<Collectable> onCollectablePickedUp;
+		public int Money { get; set; }
+		public PlayerInventory inventory;
 
 		private void Awake()
 		{

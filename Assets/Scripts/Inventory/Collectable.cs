@@ -57,6 +57,7 @@ namespace Inventory
         {
             this.name = name;
             icon = currencyData.icon;
+            worth = currencyData.worth;
         }
     }
 }

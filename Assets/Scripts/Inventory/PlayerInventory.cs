@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,17 +6,16 @@ namespace Inventory
 {
 	public class PlayerInventory : MonoBehaviour
 	{
-		[SerializeField] private List<CollectableData> window; // useful until Items can be made non-static
-		public static List<CollectableData> Items = new ();
+		[SerializeField] private List<CollectableData> items = new ();
 
-		private void Update()
-		{
-			window = Items;
-		}
+		public int ItemCount => items.Count;
+		
+		public static Action<CollectableData> OnAddItem;
 
-		public static void AddItem(CollectableData collectableData)
-		{
-			Items.Add(collectableData);
-		}
+		private void Awake() => OnAddItem += AddItem;
+
+		public void AddItem(CollectableData collectableData) => items.Add(collectableData);
+
+		public CollectableData GetItem(int index) => items[index];
 	}
 }

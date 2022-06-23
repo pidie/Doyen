@@ -16,10 +16,10 @@ namespace UserInterface
             var itemsAdded = new HashSet<IngredientData>();
             var slotModifier = 0;
             
-            for (var i = 0; i < PlayerInventory.Items.Count; i++)
+            for (var i = 0; i < InventoryManager.Instance.inventory.ItemCount; i++)
             {
                 var slot = _inventoryItemSlots[i + slotModifier];
-                var item = PlayerInventory.Items[i];
+                var item = InventoryManager.Instance.inventory.GetItem(i);
                 
                 if (itemsAdded.Contains(item.ingredientData))
                 {
@@ -35,7 +35,7 @@ namespace UserInterface
                     slot.data = item;
                     slot.gameObject.SetActive(true);
                 }
-
+        
                 itemsAdded.Add(item.ingredientData);
             }
         }

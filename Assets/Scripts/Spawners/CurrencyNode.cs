@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Inventory;
+using UnityEngine;
+using UserInterface;
 
 namespace Spawners
 {
@@ -10,6 +12,8 @@ namespace Spawners
 
 		public override void HandlePickUp()
 		{
+			PickUpRadius.nodeCollected(this);
+			InventoryCurrencyUpdater.onGainMoney(Collectable.Data.worth);
 			Destroy(gameObject);
 		}
 	}
