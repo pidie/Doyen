@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Jade Shekel
   icon: {fileID: 2800000, guid: ae8632b55d5915140af4b9a27c7ce07a, type: 3}
   worth: 100
-  onCollectSound: coin sfx
+  onCollectSound: jade coin sfx
