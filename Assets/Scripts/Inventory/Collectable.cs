@@ -39,6 +39,7 @@ namespace Inventory
         public IngredientData ingredientData;
         public List<IngredientPropertyValue> values;
         public int worth;
+        public string onCollectSound;
 
         public CollectableData(string name, IngredientData ingredientData, List<IngredientPropertyValue> values)
         {
@@ -47,6 +48,7 @@ namespace Inventory
             this.values = values;
 
             icon = ingredientData.icon;
+            onCollectSound = ingredientData.onCollectSound;
             displayContents = "";
 
             foreach (var value in values.Where(value => value.name != "Purity" && value.name != "LifeSpan"))
@@ -58,6 +60,7 @@ namespace Inventory
             this.name = name;
             icon = currencyData.icon;
             worth = currencyData.worth;
+            onCollectSound = currencyData.onCollectSound;
         }
     }
 }

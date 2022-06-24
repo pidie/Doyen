@@ -1,19 +1,17 @@
 using System;
 using UnityEngine;
-using UnityEngine.Audio;
 
 namespace Audio
 {
 	public class AudioManager : MonoBehaviour
 	{
 		[SerializeField] private Sound[] sounds;
-		private AudioSource _audioSource;
 
-		public static Action<string> OnPlaySound;
+		public static Action<string, bool> onPlaySound;
 
 		private void Awake()
 		{
-			OnPlaySound += Play;
+			onPlaySound += Play;
 			
 			foreach (var sound in sounds)
 			{
@@ -27,29 +25,16 @@ namespace Audio
 			}
 		}
 
-		private void Start() => Play("Level Music");
+		private void Start() => Play("Level Music", false);
 
-		private void Play(string clipName)
+		private void Play(string soundName, bool isOneShot)
 		{
-			var s = Array.Find(sounds, sound => sound.name == clipName);
-			s?.source.Play();
+			var sound = Array.Find(sounds, s => s.name == soundName);
+			
+			if (isOneShot)
+				sound?.source.PlayOneShot(sound.clip);
+			else
+				sound?.source.Play();
 		}
-	}
-
-	[Serializable]
-	public class Sound
-	{
-		public string name;
-		public AudioClip clip;
-		[Range(0f, 1f)]
-		public float volume;
-		[Range(0.1f, 3f)]
-		public float pitch;
-		[HideInInspector]
-		public AudioSource source;
-
-		public bool playOnAwake;
-		public bool loop;
-		public AudioMixerGroup output;
 	}
 }

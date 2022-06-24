@@ -87,7 +87,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2127388737778007233, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 199.83
+      value: 232.97
       objectReference: {fileID: 0}
     - target: {fileID: 2127388737778007233, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.y
@@ -147,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5154018788005865949, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 199.83
+      value: 232.97
       objectReference: {fileID: 0}
     - target: {fileID: 5154018788005865949, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_SizeDelta.y
@@ -163,11 +163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8275735599581153910, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_text
-      value: "\u2022 Fire Resistance\n\u2022 Fire Breathing\n"
+      value: "\u2022 Darkvision\n\u2022 Poison Resistance\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8363106080318726907, guid: bbd67e1c8cb3e1644acf9920da806614, type: 3}
       propertyPath: m_text
-      value: Red Palm Plant
+      value: Blue Palm Plant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

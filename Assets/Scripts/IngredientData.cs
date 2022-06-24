@@ -9,7 +9,8 @@ public class IngredientData : ScriptableObject
     public Texture icon;
     [Range(5, 600)]
     public int timeToRegrow;
-    
+    public string onCollectSound;
+
     [Header("Default Properties")]
     public IngredientProperty purity = new ("Purity", true, 0, 1, 0.75f);
     public IngredientProperty lifeSpan = new("LifeSpan", true, 0, 1000, 950);

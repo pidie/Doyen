@@ -10,5 +10,6 @@ namespace Inventory
 		public new string name;
 		public Texture icon;
 		public int worth;
+		public string onCollectSound;
 	}
 }

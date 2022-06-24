@@ -12,6 +12,8 @@ namespace Spawners
 
 		public override void HandlePickUp()
 		{
+			base.HandlePickUp();
+			
 			PickUpRadius.onNodeCollected(this);
 			InventoryCurrencyUpdater.onGainMoney(Collectable.Data.worth);
 			Destroy(gameObject);

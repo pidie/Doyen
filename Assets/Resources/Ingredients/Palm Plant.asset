@@ -33,3 +33,4 @@ MonoBehaviour:
     minimum: 0.02
     maximum: 0.045
     value: 0
+  onCollectSound: crunch sfx
