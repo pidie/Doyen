@@ -7,8 +7,8 @@ namespace UserInterface
 {
     public class InventoryCurrencyUpdater : MonoBehaviour
     {
-        [SerializeField] private TMP_Text moneyTextInventory;
         [SerializeField] private TMP_Text[] moneyTexts;
+        [SerializeField] private GameObject moneyGainNotification;
 
         public static Action<int> onGainMoney;
 
@@ -33,6 +33,8 @@ namespace UserInterface
         private void GainMoney(int value)
         {
             InventoryManager.Instance.Money += value;
+            var notification = Instantiate(moneyGainNotification, moneyTexts[0].transform);
+            notification.GetComponentInChildren<TMP_Text>().text = $"+{value}";
             UpdateMoneyTexts();
         }
     }

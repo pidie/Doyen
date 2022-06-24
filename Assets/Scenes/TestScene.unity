@@ -1026,10 +1026,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3683b6bac1f18741b185493ad41346b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyTextInventory: {fileID: 0}
   moneyTexts:
   - {fileID: 661581065}
   - {fileID: 1077507513}
+  moneyGainNotification: {fileID: 1958873477759015395, guid: 2122dd524509c1346b4a67950d1a650c, type: 3}
 --- !u!224 &117252753 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5049702012278067247, guid: ec02b7030b35ca146a3f73a076a83e06, type: 3}
