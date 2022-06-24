@@ -30,6 +30,7 @@ namespace UserInterface
 
         public void ToggleInventoryPanel()
         {
+            Audio.AudioManager.onMuffleMusic(!inventoryPanel.activeSelf);
             inventoryPanel.SetActive(!inventoryPanel.activeSelf);
             TooltipManager.OnDestroyTooltip();
         }

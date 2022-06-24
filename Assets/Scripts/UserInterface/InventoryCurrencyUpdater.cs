@@ -7,7 +7,8 @@ namespace UserInterface
 {
     public class InventoryCurrencyUpdater : MonoBehaviour
     {
-        [SerializeField] private TMP_Text dramText;
+        [SerializeField] private TMP_Text moneyTextInventory;
+        [SerializeField] private TMP_Text[] moneyTexts;
 
         public static Action<int> onGainMoney;
 
@@ -18,13 +19,21 @@ namespace UserInterface
 
         private void Start()
         {
-            dramText.text = InventoryManager.Instance.Money.ToString();
+            UpdateMoneyTexts();
+        }
+
+        private void UpdateMoneyTexts()
+        {
+            foreach (var moneyText in moneyTexts)
+            {
+                moneyText.text = InventoryManager.Instance.Money.ToString();
+            }
         }
 
         private void GainMoney(int value)
         {
             InventoryManager.Instance.Money += value;
-            dramText.text = InventoryManager.Instance.Money.ToString();
+            UpdateMoneyTexts();
         }
     }
 }

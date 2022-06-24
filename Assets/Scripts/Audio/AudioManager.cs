@@ -1,17 +1,23 @@
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Audio
 {
 	public class AudioManager : MonoBehaviour
 	{
+		[SerializeField] private AudioMixer mixer;
 		[SerializeField] private Sound[] sounds;
 
+		private float _storedVolume;
+		
 		public static Action<string, bool> onPlaySound;
+		public static Action<bool> onMuffleMusic;
 
 		private void Awake()
 		{
 			onPlaySound += Play;
+			onMuffleMusic += MuffleMusic;
 			
 			foreach (var sound in sounds)
 			{
@@ -25,7 +31,11 @@ namespace Audio
 			}
 		}
 
-		private void Start() => Play("Level Music", false);
+		private void Start()
+		{
+			Play("Level Music", false);
+			Play("garden birds", false);
+		}
 
 		private void Play(string soundName, bool isOneShot)
 		{
@@ -35,6 +45,24 @@ namespace Audio
 				sound?.source.PlayOneShot(sound.clip);
 			else
 				sound?.source.Play();
+		}
+
+		private void MuffleMusic(bool muffle)
+		{
+			var baseFreq = 22000f;
+			
+			if (muffle)
+			{
+				mixer.SetFloat("MusicLowpassFreq", 750f);
+				
+				mixer.GetFloat("MusicVolume", out _storedVolume);
+				mixer.SetFloat("MusicVolume", -10f);
+			}
+			else
+			{
+				mixer.SetFloat("MusicLowpassFreq", baseFreq);
+				mixer.SetFloat("MusicVolume", _storedVolume);
+			}
 		}
 	}
 }
