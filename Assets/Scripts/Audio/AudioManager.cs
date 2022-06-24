@@ -12,11 +12,14 @@ namespace Audio
 		private float _storedVolume;
 		
 		public static Action<string, bool> onPlaySound;
+		public static Action<AudioSource, bool> onPlayFromSource;
 		public static Action<bool> onMuffleMusic;
+		
 
 		private void Awake()
 		{
 			onPlaySound += Play;
+			onPlayFromSource += PlayFromSource;
 			onMuffleMusic += MuffleMusic;
 			
 			foreach (var sound in sounds)
@@ -47,6 +50,14 @@ namespace Audio
 				sound?.source.Play();
 		}
 
+		private void PlayFromSource(AudioSource source, bool isOneShot)
+		{
+			if (isOneShot)
+				source.PlayOneShot(source.clip);
+			else
+				source.Play();
+		}
+
 		private void MuffleMusic(bool muffle)
 		{
 			var baseFreq = 22000f;
@@ -55,13 +66,13 @@ namespace Audio
 			{
 				mixer.SetFloat("MusicLowpassFreq", 750f);
 				
-				mixer.GetFloat("MusicVolume", out _storedVolume);
-				mixer.SetFloat("MusicVolume", -10f);
+				mixer.GetFloat("MasterVolume", out _storedVolume);
+				mixer.SetFloat("MasterVolume", -10f);
 			}
 			else
 			{
 				mixer.SetFloat("MusicLowpassFreq", baseFreq);
-				mixer.SetFloat("MusicVolume", _storedVolume);
+				mixer.SetFloat("MasterVolume", _storedVolume);
 			}
 		}
 	}
