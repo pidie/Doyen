@@ -12,11 +12,18 @@ namespace Movement
         [SerializeField] private float gravitationalForce;
 
         private CharacterController _controller;
+        private Animator _animator;
         private Vector3 _gravVelocity;
+        private int _runBlendHash;
 
         private const float Gravity = -9.81f;
 
-        private void Awake() => _controller = GetComponent<CharacterController>();
+        private void Awake()
+        {
+            _controller = GetComponent<CharacterController>();
+            _animator = GetComponentInChildren<Animator>();
+            _runBlendHash = Animator.StringToHash("Run Blend");
+        }
 
         private void Update()
         {
@@ -27,30 +34,25 @@ namespace Movement
                 _gravVelocity.y = -2f;
             
             var horizontal = Input.GetAxis("Horizontal");
-            var vertical = Input.GetAxis("Vertical");
+            var vertical = Input.GetAxis("Vertical") * runningSpeed;
             transform.Rotate(0, horizontal * Time.deltaTime * turnSpeed, 0);
 
             var moveVelocity = new Vector3(0, 0, vertical);
-            moveVelocity *= movementSpeed * runningSpeed * Time.deltaTime;
+            moveVelocity *= movementSpeed * Time.deltaTime;
 
             _controller.Move(transform.rotation * moveVelocity);
+            
+            // var runBlend = moveVelocity.z < 0.05f ? 0 : isRunning ? 2 : vertical < 0f ? -1 : 1;
+            var runBlend = 0;
 
-            if (moveVelocity.z > 0.05f)
-                if (isRunning)
-                {
-                    AnimatorStateController.OnPlayerRun(true);
-                    AnimatorStateController.OnPlayerWalk(true);
-                }
-                else
-                {
-                    AnimatorStateController.OnPlayerRun(false);
-                    AnimatorStateController.OnPlayerWalk(true);
-                }
-            else
-            {
-                AnimatorStateController.OnPlayerRun(false);
-                AnimatorStateController.OnPlayerWalk(false);
-            }
+            if (Mathf.Abs(moveVelocity.z) > 0)
+                runBlend = 1;
+            if (isRunning)
+                runBlend *= 2;
+            if (vertical < 0)
+                runBlend *= -1;
+            
+            _animator.SetFloat(_runBlendHash, runBlend, 0.1f, Time.deltaTime);
 
             if (Input.GetButtonDown("Jump") && groundCheck.isGrounded)
                 _gravVelocity.y = Mathf.Sqrt(jumpHeight * -2f * Gravity);

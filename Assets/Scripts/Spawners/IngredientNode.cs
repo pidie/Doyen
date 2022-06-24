@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Audio;
 using Inventory;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace Spawners
 		{
 			if (hasBeenCollected) return;
 
+			AudioManager.OnPlaySound("crunch sfx");
 			PickUpRadius.onNodeCollected(this);
 			Collectable.ToggleOutlineOff();
 			_originalScale = instance.transform.localScale;
