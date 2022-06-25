@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -10,18 +11,20 @@ namespace Audio
 		[SerializeField] private Sound[] sounds;
 
 		private float _storedVolume;
-		
+
 		public static Action<string, bool> onPlaySound;
 		public static Action<AudioSource, bool> onPlayFromSource;
 		public static Action<bool> onMuffleMusic;
-		
+		public static Action<float> onFadeMusic;
+
 
 		private void Awake()
 		{
 			onPlaySound += Play;
 			onPlayFromSource += PlayFromSource;
 			onMuffleMusic += MuffleMusic;
-			
+			onFadeMusic += FadeMusic;
+
 			foreach (var sound in sounds)
 			{
 				sound.source = gameObject.AddComponent<AudioSource>();
@@ -43,7 +46,7 @@ namespace Audio
 		private void Play(string soundName, bool isOneShot)
 		{
 			var sound = Array.Find(sounds, s => s.name == soundName);
-			
+
 			if (isOneShot)
 				sound?.source.PlayOneShot(sound.clip);
 			else
@@ -61,11 +64,11 @@ namespace Audio
 		private void MuffleMusic(bool muffle)
 		{
 			var baseFreq = 22000f;
-			
+
 			if (muffle)
 			{
 				mixer.SetFloat("MusicLowpassFreq", 750f);
-				
+
 				mixer.GetFloat("MasterVolume", out _storedVolume);
 				mixer.SetFloat("MasterVolume", -10f);
 			}
@@ -74,6 +77,23 @@ namespace Audio
 				mixer.SetFloat("MusicLowpassFreq", baseFreq);
 				mixer.SetFloat("MasterVolume", _storedVolume);
 			}
+		}
+
+		private void FadeMusic(float time) => StartCoroutine(Fade(time));
+
+		private IEnumerator Fade(float time)
+		{
+			var sound = Array.Find(sounds, s => s.name == "Level Music");
+			print(sound.volume);
+			mixer.GetFloat("Musicvolume", out var volume);
+			while (volume > 0)
+			{
+				var v = Mathf.Lerp(volume, -80f, Time.deltaTime / time);
+				mixer.SetFloat("MusicVolume",volume - v);
+			}
+			sound.source.Stop();
+			yield return null;
+
 		}
 	}
 }
