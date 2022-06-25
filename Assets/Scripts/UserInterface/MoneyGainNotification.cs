@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -11,8 +10,9 @@ namespace UserInterface
         [SerializeField] private float timeToStayOpaque;
         [SerializeField] private TMP_Text notificationText;
         [SerializeField] private float moveSpeed;
+        [Range(1.001f, 1.8f)]
+        [SerializeField] private float acceleration;
 
-        private bool _startedFade = false;
         private float FadeTime => timeUntilDestroy - timeToStayOpaque;
         
         private void Awake() => StartCoroutine(WaitToDestroy());
@@ -20,6 +20,7 @@ namespace UserInterface
         private void Update()
         {
             transform.position += new Vector3(0, -moveSpeed * Time.deltaTime);
+            moveSpeed *= acceleration;
         }
 
         private IEnumerator WaitToDestroy()
