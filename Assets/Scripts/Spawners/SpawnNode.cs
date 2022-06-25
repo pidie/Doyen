@@ -24,9 +24,6 @@ namespace Spawners
 			instance.transform.localScale *= 4;
 		}
 
-		public virtual void HandlePickUp()
-		{
-			Audio.AudioManager.onPlaySound(Collectable.Data.onCollectSound, true);
-		}
+		public virtual void HandlePickUp() => Audio.AudioManager.onPlaySound(Collectable.Data.onCollectSound, true);
 	}
 }

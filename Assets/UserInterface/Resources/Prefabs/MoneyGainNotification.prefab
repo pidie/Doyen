@@ -190,7 +190,8 @@ MonoBehaviour:
   timeUntilDestroy: 1.8
   timeToStayOpaque: 1
   notificationText: {fileID: 1447350009778108925}
-  moveSpeed: 60
+  moveSpeed: 30
+  acceleration: 1.017
 --- !u!222 &1146781879766789524
 CanvasRenderer:
   m_ObjectHideFlags: 0
