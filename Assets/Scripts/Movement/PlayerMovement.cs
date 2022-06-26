@@ -43,10 +43,14 @@ namespace Movement
             
             var horizontal = Input.GetAxis("Horizontal");
             var vertical = Input.GetAxis("Vertical") * runningSpeed;
+            
             transform.Rotate(0, horizontal * Time.deltaTime * turnSpeed, 0);
 
             var moveVelocity = new Vector3(0, 0, vertical);
             moveVelocity *= movementSpeed * Time.deltaTime;
+            
+            if (vertical < 0)
+                moveVelocity *= 0.7f;
 
             _controller.Move(transform.rotation * moveVelocity);
             
@@ -58,8 +62,6 @@ namespace Movement
                 runBlend *= 2;
             if (vertical < 0)
                 runBlend *= -1;
-            if (vertical < 0 && isRunning)
-                moveVelocity.z++;
             
             _animator.SetFloat(_runBlendHash, runBlend, 0.1f, Time.deltaTime);
 
