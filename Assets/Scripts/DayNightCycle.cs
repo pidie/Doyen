@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Rotates a game object that controls the directional light, simulating a day/night cycle
+/// </summary>
 public class DayNightCycle : MonoBehaviour
 {
     [SerializeField] private float cycleSpeed;

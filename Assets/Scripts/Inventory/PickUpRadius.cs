@@ -75,6 +75,7 @@ namespace Inventory
 
             if (item != null)
             {
+                // currency shouldn't be added to the player's inventory
                 if (_targetNode.GetType() != typeof(CurrencyNode))
                     InventoryManager.Instance.inventory.AddItem(item.Data);
                 
@@ -84,19 +85,21 @@ namespace Inventory
             }
         }
 
+        // todo : this should be handled by the UI
         private void CheckForHideMessageBox()
         {
             if (nodesInRange.Count < 1)
                 HUD.OnHideMessageBox();
         }
 
+        // todo : this should be handled by the UI
         private void ShowMessageBox(SpawnNode node)
         {
             _targetNode = node;
             _targetNode.Collectable.ToggleOutlineOn();
             HUD.OnDisplayMessageBox($"{_targetNode.Collectable.Data.name}\nPress {Globals.GetKeyBinding("Interact")} to pick up");
         }
-
+        
         private void DetermineTargetCollectable()
         {
             if (nodesInRange.Count > 0)
@@ -106,9 +109,11 @@ namespace Inventory
                     if (_targetNode == null)
                         ShowMessageBox(node);
 
+                    // calculate the distance between the current target node and the node in our loop
                     var currentTargetDistance = Vector3.Distance(transform.position, _targetNode.transform.position);
                     var potentialTargetDistance = Vector3.Distance(transform.position, node.transform.position);
 
+                    // if the new node is closer, set that node to be the new target
                     if (potentialTargetDistance < currentTargetDistance)
                     {
                         _targetNode.Collectable.ToggleOutlineOff();
