@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Spawners
 {
-	public class IngredientNode : SpawnNode
+	public class RegenerationNode : SpawnNode
 	{
 		private Vector3 _originalScale;
 
