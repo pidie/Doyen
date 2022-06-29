@@ -38,13 +38,25 @@ namespace UserInterface
             Audio.AudioManager.onMuffleMusic(!inventoryPanel.activeSelf);
             inventoryPanel.SetActive(!inventoryPanel.activeSelf);
             TooltipManager.OnDestroyTooltip();
+
+            if (inventoryPanel.activeSelf)
+                PlayerInputController.menusActive++;
+            else
+                PlayerInputController.menusActive--;
         }
 
         public void ToggleMainMenu()
         {
             Audio.AudioManager.onMuffleMusic(!mainMenu.activeSelf);
             mainMenu.SetActive(!mainMenu.activeSelf);
-            PlayerInputController.menuActive = !mainMenu.activeSelf;
+            
+            if (inventoryPanel.activeSelf)
+                ToggleInventoryPanel();
+
+            if (mainMenu.activeSelf)
+                PlayerInputController.menusActive++;
+            else
+                PlayerInputController.menusActive--;
         }
 
         public void DisplayMessageBox(string message = "")

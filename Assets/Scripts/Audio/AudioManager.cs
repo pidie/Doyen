@@ -10,7 +10,7 @@ namespace Audio
 		[SerializeField] private AudioMixer mixer;
 		[SerializeField] private Sound[] sounds;
 
-		private float _storedVolume;
+		private float _tempVolume;
 
 		public static Action<string, bool> onPlaySound;
 		public static Action<AudioSource, bool> onPlayFromSource;
@@ -63,19 +63,19 @@ namespace Audio
 
 		private void MuffleMusic(bool muffle)
 		{
-			var baseFreq = 22000f;
+			const float baseFreq = 22000f;
 
 			if (muffle)
 			{
 				mixer.SetFloat("MusicLowpassFreq", 750f);
 
-				mixer.GetFloat("MasterVolume", out _storedVolume);
+				mixer.GetFloat("MasterVolume", out _tempVolume);
 				mixer.SetFloat("MasterVolume", -10f);
 			}
 			else
 			{
 				mixer.SetFloat("MusicLowpassFreq", baseFreq);
-				mixer.SetFloat("MasterVolume", _storedVolume);
+				mixer.SetFloat("MasterVolume", _tempVolume);
 			}
 		}
 

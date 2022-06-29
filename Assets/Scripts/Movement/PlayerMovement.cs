@@ -38,6 +38,9 @@ namespace Movement
 
         private void Update()
         {
+            // used to prevent the player from moving if a menu is open
+            var canMove = PlayerInputController.menusActive == 0;
+            
             // set run speed
             var isRunning = Input.GetKey(KeyCode.LeftShift);
             var runningSpeed = isRunning ? runningSpeedMultiplier : 1f;
@@ -45,9 +48,6 @@ namespace Movement
             // keep the gravitational velocity of the player in place
             if (groundCheck.isGrounded && _gravVelocity.y < 0)
                 _gravVelocity.y = -2f;
-
-            // prevent the player from moving if the main menu is open
-            if (PlayerInputController.menuActive) return;
             
             // check if the player is initiating a roll this frame
             if (Input.GetKeyDown(KeyCode.LeftControl) && _canRoll)
@@ -61,7 +61,8 @@ namespace Movement
             var vertical = Input.GetAxis("Vertical") * runningSpeed;
             
             // turn the player based on input
-            transform.Rotate(0, horizontal * Time.deltaTime * turnSpeed, 0);
+            var rotation = new Vector3(0, horizontal * Time.deltaTime * turnSpeed, 0);
+            transform.Rotate(canMove ? rotation : Vector3.zero);
 
             // determine the player's movement speed
             var moveVelocity = new Vector3(0, 0, vertical);
@@ -72,7 +73,7 @@ namespace Movement
                 moveVelocity *= 0.7f;
 
             // actually move the player
-            _controller.Move(transform.rotation * moveVelocity);
+            _controller.Move(canMove ? transform.rotation * moveVelocity : Vector3.zero);
             
             // runBlend triggers the animation blend tree for walking/running/idling
             var runBlend = 0;
@@ -84,10 +85,10 @@ namespace Movement
             if (vertical < 0)
                 runBlend *= -1;
             
-            _animator.SetFloat(_runBlendHash, runBlend, 0.1f, Time.deltaTime);
+            _animator.SetFloat(_runBlendHash, canMove ? runBlend : 0, 0.1f, Time.deltaTime);
 
             // if the player jumps, increase upward velocity
-            if (Input.GetButtonDown("Jump") && groundCheck.isGrounded)
+            if (Input.GetButtonDown("Jump") && groundCheck.isGrounded && canMove)
             {
                 _animator.SetBool(_isJumpingHash, true);
                 _gravVelocity.y = Mathf.Sqrt(jumpHeight * -2f * Gravity);
