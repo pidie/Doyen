@@ -9,11 +9,12 @@ namespace Audio
 	{
 		public string name;
 		public AudioClip clip;
-		[Range(0f, 1f)]
+		
+		[Range(0f, 1f)]	
 		public float volume;
-		[Range(0.1f, 3f)]
+		[Range(0.1f, 3f)]	
 		public float pitch;
-		[HideInInspector]
+		[HideInInspector]	
 		public AudioSource source;
 
 		public bool playOnAwake;

@@ -124,7 +124,6 @@ namespace Spawners
 				var newNode = Instantiate(node, position, Quaternion.identity, transform);
 				newNode.GetComponent<MeshRenderer>().enabled = false;
 				var n = newNode.GetComponent(typeof(SpawnNode)) as SpawnNode;
-				if (n == null) throw new NullReferenceException($"No derivative of SpawnNode was found on {gameObject.name}! Was a node type added to the spawner?");
 				var scaling = node.transform.localScale.x / _spawnerDiameter;
 				newNode.transform.localScale = new Vector3(scaling, scaling,scaling);
 				newNode.name = $"{Globals.TitleCase(itemToSpawn.name)} Node {count}";

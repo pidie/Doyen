@@ -15,6 +15,8 @@ namespace Spawners
 
 		public Collectable Collectable => instance.GetComponent<Collectable>();
 
+		public GameObject Instance => instance;
+
 		public void DestroyNode() => DestroyImmediate(gameObject);
 
 		public void SpawnItem()
@@ -23,7 +25,7 @@ namespace Spawners
 			instance = Instantiate(item, position, Quaternion.identity, transform);
 			instance.transform.localScale *= 4;
 		}
-
+		
 		public virtual void HandlePickUp() => Audio.AudioManager.onPlaySound(Collectable.Data.onCollectSound, true);
 	}
 }
