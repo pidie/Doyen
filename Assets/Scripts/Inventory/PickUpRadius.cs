@@ -35,17 +35,7 @@ namespace Inventory
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("SpawnNode"))
-            {
-                var node = other.GetComponent<SpawnNode>();
-                if (node.hasBeenCollected) return;
-                if (node.IsAutoCollected)
-                {
-                    _targetNode = node;
-                    TryPickUpItem();
-                }
-                else
-                    nodesInRange.Add(node);
-            }
+                AddNode(other.GetComponent<SpawnNode>());
         }
 
         private void OnTriggerExit(Collider other)
@@ -63,9 +53,27 @@ namespace Inventory
             }
         }
 
+        private void AddNode(SpawnNode node)
+        {
+            if (node.hasBeenCollected) return;
+            if (node.IsAutoCollected)
+            {
+                _targetNode = node;
+                TryPickUpItem();
+            }
+            else
+                nodesInRange.Add(node);
+        }
+
         private void NodeCollected(SpawnNode node) => nodesInRange.Remove(node);
 
-        private void NodeRefreshed(SpawnNode node) => nodesInRange.Add(node);
+        private void NodeRefreshed(SpawnNode node)
+        {
+            // SphereCollider radius is measured in local space, not world space - this is temporary while the player is scaled up to match the environment
+            var radiusScaled = detectionRadius * 2.5f;
+            if (Vector3.Distance(transform.position, node.transform.position) <= radiusScaled)
+                AddNode(node);
+        }
 
         public void TryPickUpItem()
         {
