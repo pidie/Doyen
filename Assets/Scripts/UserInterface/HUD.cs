@@ -1,4 +1,5 @@
 using System;
+using PlayerInput;
 using TMPro;
 using UnityEngine;
 
@@ -43,6 +44,7 @@ namespace UserInterface
         {
             Audio.AudioManager.onMuffleMusic(!mainMenu.activeSelf);
             mainMenu.SetActive(!mainMenu.activeSelf);
+            PlayerInputController.menuActive = !mainMenu.activeSelf;
         }
 
         public void DisplayMessageBox(string message = "")

@@ -85,15 +85,19 @@ namespace Audio
 		{
 			var sound = Array.Find(sounds, s => s.name == "Level Music");
 			print(sound.volume);
-			mixer.GetFloat("Musicvolume", out var volume);
+			mixer.GetFloat("MusicVolume", out var volume);
+			
 			while (volume > 0)
 			{
 				var v = Mathf.Lerp(volume, -80f, Time.deltaTime / time);
 				mixer.SetFloat("MusicVolume",volume - v);
 			}
+			
 			sound.source.Stop();
 			yield return null;
 
 		}
+
+		public void SetLevel(string channel, float value) => mixer.SetFloat(channel, Mathf.Log10(value) * 20);
 	}
 }
