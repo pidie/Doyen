@@ -27,7 +27,7 @@ namespace Spawners
 		private Vector3[] _nodePositions;
 		private float _densityMultiplier;
 		
-		private void Awake() => enabled = true;
+		private void Awake() => enabled = EditorApplication.isPlaying;
 
 		private void OnEnable()
 		{
@@ -96,12 +96,13 @@ namespace Spawners
 				// 		i--;
 				// 		continue;
 				// 	}
-				if (!Physics.Raycast(nodeLocation + new Vector3(0, -1, 0), Vector3.up, out var hit, _spawnerDiameter + 1))
-					if (!Physics.Raycast(nodeLocation + new Vector3(0, 1, 0), Vector3.down, out hit, _spawnerDiameter + 1))
-					{
-						i--;
-						continue;
-					}
+                var isRaycastUpHit = Physics.Raycast(nodeLocation + new Vector3(0, -1, 0), Vector3.up, out var hit, _spawnerDiameter + 1);
+                var isRaycastDownHit = Physics.Raycast(nodeLocation + new Vector3(0, 1, 0), Vector3.down, out hit, _spawnerDiameter + 1);
+				if (!isRaycastUpHit && !isRaycastDownHit)
+				{
+					i--;
+					continue;
+				}
 
 				nodeLocation = new Vector3(nodeLocation.x, hit.point.y, nodeLocation.z);
 
