@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using PlayerInput;
 using UnityEngine;
 
 namespace Movement
@@ -45,6 +46,9 @@ namespace Movement
             if (groundCheck.isGrounded && _gravVelocity.y < 0)
                 _gravVelocity.y = -2f;
 
+            // prevent the player from moving if the main menu is open
+            if (PlayerInputController.menuActive) return;
+            
             // check if the player is initiating a roll this frame
             if (Input.GetKeyDown(KeyCode.LeftControl) && _canRoll)
             {

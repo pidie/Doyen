@@ -11,7 +11,7 @@ public static class Globals
     {
         { "Interact",   KeyCode.E },
         { "Inventory",  KeyCode.I },
-        { "MainMenu" ,  KeyCode.M }
+        { "MainMenu" ,  KeyCode.Escape }
     };
 
     public static string bulletSymbol = "\u2022";
