@@ -17,7 +17,7 @@ namespace Audio
 		public static Action<AudioSource, bool> onPlayFromSource;
 		public static Action<bool> onMuffleMusic;
 		public static Action<float> onFadeMusic;
-
+		public static Action onNewGame;
 
 		private void Awake()
 		{
@@ -26,6 +26,7 @@ namespace Audio
 			onPlayFromSource += PlayFromSource;
 			onMuffleMusic += MuffleMusic;
 			onFadeMusic += FadeMusic;
+			onNewGame += PlayLevelSounds;
 
 			foreach (var sound in sounds)
 			{
@@ -39,7 +40,7 @@ namespace Audio
 			}
 		}
 
-		private void Start()
+		private void PlayLevelSounds()
 		{
 			Play("Level Music");
 			Play("garden birds");
