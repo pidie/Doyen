@@ -2,6 +2,7 @@ using System;
 using Inventory;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UserInterface
 {
@@ -17,13 +18,15 @@ namespace UserInterface
             onGainMoney += GainMoney;
         }
 
-        private void Start()
+        private void CheckForUpdateMoneyTexts()
         {
-            UpdateMoneyTexts();
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+                GameManager.onLoadNewScene += UpdateMoneyTexts;
         }
 
         private void UpdateMoneyTexts()
         {
+            if (moneyTexts == null) return;
             foreach (var moneyText in moneyTexts)
             {
                 moneyText.text = InventoryManager.Instance.Money.ToString();
