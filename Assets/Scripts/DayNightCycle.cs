@@ -27,7 +27,7 @@ public class DayNightCycle : MonoBehaviour
         if (_musicStopped && Mathf.Abs(transform.rotation.x) < 90)
         {
             _musicStopped = false;
-            Audio.AudioManager.onPlaySound("Level Music", false);
+            Audio.AudioManager.onPlaySound("Level Music");
         }
     }
 }

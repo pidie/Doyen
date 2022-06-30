@@ -12,7 +12,8 @@ namespace Audio
 
 		private float _tempVolume;
 
-		public static Action<string, bool> onPlaySound;
+		public static Action<string> onPlaySound;
+		public static Action<string> onPlayOneShot;
 		public static Action<AudioSource, bool> onPlayFromSource;
 		public static Action<bool> onMuffleMusic;
 		public static Action<float> onFadeMusic;
@@ -21,6 +22,7 @@ namespace Audio
 		private void Awake()
 		{
 			onPlaySound += Play;
+			onPlayOneShot += PlayOneShot;
 			onPlayFromSource += PlayFromSource;
 			onMuffleMusic += MuffleMusic;
 			onFadeMusic += FadeMusic;
@@ -39,18 +41,20 @@ namespace Audio
 
 		private void Start()
 		{
-			Play("Level Music", false);
-			Play("garden birds", false);
+			Play("Level Music");
+			Play("garden birds");
 		}
 
-		private void Play(string soundName, bool isOneShot)
+		private void Play(string soundName)
 		{
 			var sound = Array.Find(sounds, s => s.name == soundName);
+			sound?.source.Play();
+		}
 
-			if (isOneShot)
-				sound?.source.PlayOneShot(sound.clip);
-			else
-				sound?.source.Play();
+		private void PlayOneShot(string soundName)
+		{
+			var sound = Array.Find(sounds, s => s.name == soundName);
+			sound?.source.PlayOneShot(sound.clip);
 		}
 
 		private void PlayFromSource(AudioSource source, bool isOneShot)

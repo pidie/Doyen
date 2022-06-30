@@ -7,8 +7,8 @@ namespace UserInterface
 {
     public class InventoryCurrencyUpdater : MonoBehaviour
     {
-        [SerializeField] private TMP_Text[] moneyTexts;
         [SerializeField] private GameObject moneyGainNotification;
+        [SerializeField] private TMP_Text[] moneyTexts;
 
         public static Action<int> onGainMoney;
 
