@@ -1,8 +1,8 @@
 using System;
 using Audio;
+using Serialization;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,9 +10,8 @@ public class GameManager : MonoBehaviour
     
     public void NewGame()
     {
-        SceneManager.LoadScene("TestScene");
+        SceneLoader.Load(SceneLoader.Scene.TestScene);
         onLoadNewScene.Invoke();
-        
         AudioManager.onNewGame.Invoke();
     }
     
@@ -20,6 +19,8 @@ public class GameManager : MonoBehaviour
     {
         #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
         #endif
     }
 }

@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Palm Plant
   icon: {fileID: 2800000, guid: 0c8c7ec8bedd13645b279107e3062759, type: 3}
   timeToRegrow: 300
+  onCollectSound: crunch sfx
   purity:
     name: Purity
     enabled: 1
@@ -33,4 +34,3 @@ MonoBehaviour:
     minimum: 0.02
     maximum: 0.045
     value: 0
-  onCollectSound: crunch sfx

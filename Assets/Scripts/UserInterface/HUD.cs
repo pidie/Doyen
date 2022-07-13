@@ -1,5 +1,6 @@
 using System;
 using PlayerInput;
+using Serialization;
 using TMPro;
 using UnityEngine;
 
@@ -12,25 +13,44 @@ namespace UserInterface
         [SerializeField] private GameObject inventoryPanel;
         [SerializeField] private GameObject mainMenu;
 
-        public static Action<string> OnDisplayMessageBox;
-        public static Action OnHideMessageBox;
-        public static Action OnToggleInventoryPanel;
-        public static Action OnToggleMainMenu;
+        public static Action<string> onDisplayMessageBox;
+        public static Action onHideMessageBox;
+        public static Action onToggleInventoryPanel;
+        public static Action onToggleMainMenu;
 
         private void OnEnable()
         {
-            OnDisplayMessageBox += DisplayMessageBox;
-            OnHideMessageBox += HideMessageBox;
-            OnToggleInventoryPanel += ToggleInventoryPanel;
-            OnToggleMainMenu += ToggleMainMenu;
+            onDisplayMessageBox += DisplayMessageBox;
+            onHideMessageBox += HideMessageBox;
+            onToggleInventoryPanel += ToggleInventoryPanel;
+            onToggleMainMenu += ToggleMainMenu;
+            SceneLoader.onAssignReferences += AssignReferences;
+            SceneLoader.onSetUIElements += SetUIElements;
         }
 
         private void OnDisable()
         {
-            OnDisplayMessageBox -= DisplayMessageBox;
-            OnHideMessageBox -= HideMessageBox;
-            OnToggleInventoryPanel -= ToggleInventoryPanel;
-            OnToggleMainMenu -= ToggleMainMenu;
+            onDisplayMessageBox -= DisplayMessageBox;
+            onHideMessageBox -= HideMessageBox;
+            onToggleInventoryPanel -= ToggleInventoryPanel;
+            onToggleMainMenu -= ToggleMainMenu;
+            SceneLoader.onAssignReferences -= AssignReferences;
+            SceneLoader.onSetUIElements -= SetUIElements;
+        }
+
+        private void AssignReferences()
+        {
+            messageBoxPanel = GameObject.Find("MessageBoxPanel");
+            messageBox = messageBoxPanel.GetComponentInChildren<TMP_Text>();
+            inventoryPanel = GameObject.Find("InventoryPanel");
+            mainMenu = GameObject.Find("MainMenu");
+        }
+
+        private void SetUIElements()
+        {
+            messageBoxPanel.SetActive(false);
+            inventoryPanel.SetActive(false);
+            mainMenu.SetActive(false);
         }
 
         public void ToggleInventoryPanel()

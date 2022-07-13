@@ -231,14 +231,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: ef47dac4498cac14383529352a244776, type: 2}
   sounds:
-  - name: Level Music
-    clip: {fileID: 8300000, guid: aee6f9f7629533e4690e28872b244bb7, type: 3}
-    volume: 0.8
-    pitch: 1
-    source: {fileID: 0}
-    playOnAwake: 1
-    loop: 1
-    output: {fileID: 5053610558514754585, guid: ef47dac4498cac14383529352a244776, type: 2}
   - name: crunch sfx
     clip: {fileID: 8300000, guid: 8288183d09bae4b47860b898cd686ff6, type: 3}
     volume: 1
@@ -263,14 +255,6 @@ MonoBehaviour:
     playOnAwake: 0
     loop: 0
     output: {fileID: 3341648857838743649, guid: ef47dac4498cac14383529352a244776, type: 2}
-  - name: garden birds
-    clip: {fileID: 8300000, guid: 2c89841116e65364c827066cdcca2613, type: 3}
-    volume: 0.25
-    pitch: 1
-    source: {fileID: 0}
-    playOnAwake: 1
-    loop: 1
-    output: {fileID: 6339905868921820468, guid: ef47dac4498cac14383529352a244776, type: 2}
   - name: click01
     clip: {fileID: 8300000, guid: 4d4c4b0c5fc791140a4b9b9ac0912285, type: 3}
     volume: 0.5
