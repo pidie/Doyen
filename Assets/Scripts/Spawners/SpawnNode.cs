@@ -17,6 +17,7 @@ namespace Spawners
 
 		public GameObject Instance => instance;
 
+		// used for destroying nodes in edit mode only
 		public void DestroyNode() => DestroyImmediate(gameObject);
 
 		public void SpawnItem()

@@ -97,7 +97,7 @@ namespace Inventory
         private void CheckForHideMessageBox()
         {
             if (nodesInRange.Count < 1)
-                HUD.OnHideMessageBox();
+                HUD.onHideMessageBox();
         }
 
         // todo : this should be handled by the UI
@@ -105,7 +105,7 @@ namespace Inventory
         {
             _targetNode = node;
             _targetNode.Collectable.ToggleOutlineOn();
-            HUD.OnDisplayMessageBox($"{_targetNode.Collectable.Data.name}\nPress {Globals.GetKeyBinding("Interact")} to pick up");
+            HUD.onDisplayMessageBox($"{_targetNode.Collectable.Data.name}\nPress {Globals.GetKeyBinding("Interact")} to pick up");
         }
         
         private void DetermineTargetCollectable()

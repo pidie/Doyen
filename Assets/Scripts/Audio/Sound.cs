@@ -14,7 +14,7 @@ namespace Audio
 		public float volume;
 		[Range(0.1f, 3f)]	
 		public float pitch;
-		[HideInInspector]	
+		// [HideInInspector]	
 		public AudioSource source;
 
 		public bool playOnAwake;

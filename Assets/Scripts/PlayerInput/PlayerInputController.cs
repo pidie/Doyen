@@ -13,13 +13,13 @@ namespace PlayerInput
 			if (Input.anyKey)
 			{
 				if (Input.GetKeyDown(Globals.GetKeyBinding("Inventory")))
-					HUD.OnToggleInventoryPanel.Invoke();
+					HUD.onToggleInventoryPanel.Invoke();
 				if (Input.GetKeyDown(Globals.GetKeyBinding("Interact")))
 					PickUpRadius.itemPickUpRequested.Invoke();
 				if (Input.GetKeyDown(Globals.GetKeyBinding("MainMenu")))
 				{
 					if (SettingsMenu.atMainMenu)
-						HUD.OnToggleMainMenu.Invoke();
+						HUD.onToggleMainMenu.Invoke();
 					else
 						SettingsMenu.onBackStep?.Invoke();
 				}
